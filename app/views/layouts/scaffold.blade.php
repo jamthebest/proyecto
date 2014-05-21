@@ -34,24 +34,28 @@
         <a class="navbar-brand" href="Inicio"> <img src="images/icon.png"> XXXXX</a>
         <ul class="nav navbar-nav navbar-left">
           <li class="dropdown">
-                <a href='Inicio' class="dropdown-toggle">Inicio</a>
-              </li>
+            <a href='Inicio' class="dropdown-toggle">Inicio</a>
+          </li>
 
           <li class="dropdown">
-                <a href='Informacion' class="dropdown-toggle">Información </a>
-              </li>
+            <a href='Informacion' class="dropdown-toggle">Información </a>
+          </li>
 
           <li class="dropdown">
-                <a href="Ejemplos" class="dropdown-toggle">Ejemplos de Casos</a>
-              </li>
-
-              <li class="dropdown">
-                <a href="Solicitudes" class="dropdown-toggle">Solicitudes</a>
-              </li>
+            <a href="Categorias" class="dropdown-toggle">Categorías de Interés</a>
+          </li>
 
           <li class="dropdown">
-                <a href="Comentarios" class="dropdown-toggle">Comentarios</a>
-              </li>
+            <a href="Ejemplos" class="dropdown-toggle">Ejemplos de Casos</a>
+          </li>
+
+          <li class="dropdown">
+            <a href="Solicitudes" class="dropdown-toggle">Solicitudes</a>
+          </li>
+
+          <li class="dropdown">
+            <a href="Comentarios" class="dropdown-toggle">Comentarios</a>
+          </li>
         </ul>
         @if (Auth::user())
             <p class="navbar-text navbar-right" style="margin-right: 1em;"><a href="Logout" class="navbar-link">Salir</a></p>

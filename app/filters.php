@@ -35,7 +35,7 @@ App::after(function($request, $response)
 
 Route::filter('auth', function()
 {
-	if (Auth::guest()) return Redirect::guest('/Login')->with('msg', 'Primero debes ingresar con tu usuario.');
+	if (Auth::guest()) return Redirect::guest('/Login')->with('message', 'Primero debes ingresar con tu usuario.');
 });
 
 
@@ -57,7 +57,7 @@ Route::filter('auth.basic', function()
 
 Route::filter('guest', function()
 {
-	if (Auth::check()) return Redirect::to('/');
+	if (Auth::check()) return Redirect::to('/')->with('message', 'Ya tienes una cuenta registrada!');
 });
 
 /*

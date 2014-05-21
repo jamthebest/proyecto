@@ -25,6 +25,21 @@ Route::get('/Informacion', function()
 	return View::make('Informacion');
 });
 
+Route::get('/Categorias', function()
+{
+    return View::make('Categorias');
+});
+
+Route::get('/Pregrado', function()
+{
+    return View::make('Pregrado');
+});
+
+Route::get('/Postgrado', function()
+{
+    return View::make('Postgrado');
+});
+
 Route::get('/Login', ['before' => 'guest', function(){
 	return View::make('Login');
 }]);
@@ -34,33 +49,20 @@ Route::post('/Login', ['uses' => 'AuthController@doLogin', 'before' => 'guest'])
 Route::get('/Logout', ['uses' => 'AuthController@doLogout', 'before' => 'auth']);
 
 
-Route::get('Registro', array('as' => 'Registro', 'uses' =>'UsuariosController@create'));
+Route::get('Registro', array('as' => 'Registro', 'uses' =>'UsuariosController@create', 'before' => 'guest'));
 
-Route::post('Registro', array('as' => 'Registrar', 'uses' =>'UsuariosController@store'));
+Route::post('Registro', array('as' => 'Registrar', 'uses' =>'UsuariosController@store', 'before' => 'guest'));
 
-Route::resource('Mensajes', 'MensajesController');
+Route::group(array('before' => 'auth'), function()
+{
+    Route::resource('Comentarios', 'ComentariosController');
+    Route::resource('Solicitudes', 'SolicitudesController');
+});
 
 Route::resource('Usuarios', 'UsuariosController');
 
 Route::resource('Datos', 'DatosController');
 
-Route::resource('Comentarios', 'ComentariosController');
-
-Route::resource('Solicitudes', 'SolicitudesController');
-
 Route::resource('Rols', 'RolsController');
 
 Route::resource('Carreras', 'CarrerasController');
-
-Route::post('registro', function(){
- 
-    $input = Input::all();
-    
-    // al momento de crear el usuario la clave debe ser encriptada
-    // para utilizamos la función estática make de la clase Hash
-    // esta función encripta el texto para que sea almacenado de manera segura
-    $input['password'] = Hash::make($input['password']);
-    User::create($input);
- 
-    return Redirect::to('/Login')->with('mensaje_registro', 'Usuario Registrado');
-});
