@@ -12,9 +12,9 @@ class CreateUserTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('proyectodb.usuario', function($table){
+		Schema::table('usuario', function($table){
 	       $table->create();
-	       $table->increments('id',11);
+	       $table->increments('id');
 	       $table->string('user',50);
 	       $table->string('email',128);
 	       $table->string('password',62);
