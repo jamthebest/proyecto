@@ -7,25 +7,36 @@
 @section('main')
 	
 	<div class="row">
-    	<div class="col-md-3"><h2>Ingreso > <small></small></h2></div>
+    	<div class="col-md-5"><h2>Ejemplos de Casos > <small></small></h2></div>
 	</div>
 
-	@if(Session::has('message'))
-		<div class="alert alert-danger fade in">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-            {{ Session::get('message') }}
-        </div>
-	@endif
-
-	{{ Form::open(array('url' => '/Login', 'method' => 'POST')) }}
-		<div class="col-md-5 col-md-offset-3" style="margin-top:8%">
-			<label for="user">Usuario:</label>
-			{{ Form::text('user',null, array('style' => 'margin-bottom:5%;', 'class' => 'form-control', 'id' => 'user', 'placeholder' => 'Usuario', 'autofocus')) }}
-			<label for="password">Contraseña:</label>
-			{{ Form::password('password', array('style' => 'margin-bottom:10%;', 'class' => 'form-control', 'id' => 'password', 'placeholder' => 'Contraseña')) }}
-			{{ Form::submit('Ingrersar', array('class' => 'btn btn-lg btn-primary btn-block')) }}
-		    
-	    </div>
-	{{ Form::close() }}
+	<div>
+		<h3><br>XXXXX cuenta con profesionales especializados en temas específicos según su orientación. 
+			Es por esto que el programa está capacitado para brindar soluciones a diversas situaciones o 
+			casos que lo requieran.<br> A continuación les presentamos algunas posibles situaciones que 
+			requieran de nuestros servicios.
+			<br><br>
+		</h3>
+		<h4>
+			<li>
+				La Alcaldía de una municipalidad contruirá un nuevo puente para una comunidad cercana, pero
+				no cuenta con un ingeniero civil que le facilite los debidos planos y acciones detalladas 
+				para su construcción. El alcalde podría contactar a XXXXX, que cuenta con profesionales en 
+				diseño de puentes.<br><br>
+			</li>
+			<li>
+				Una organización no gubernamental, no tiene un manual de identidad gráfica y no cuenta con 
+				un diseñador gráfico o comunicador que pueda preparar dicho documento.<br><br>
+			</li>
+			<li>
+				Una maquila necesita optimizar sus recursos energéticos, pero no cuenta con los recursos 
+				humanos que puedan realizar un estudio y notificar así las debidas observaciones.<br><br>
+			</li>
+		</h4>
+	</div>
+	<footer>
+		<br>Nota: Los presentes escenarios son ficticios, que tienen como único fin orientar al usuario de 
+		XXXXX, para mostrar lo que los profesionales que están dentro del programa son capaces de solucionar.
+	</footer>
 
 @stop
