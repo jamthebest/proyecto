@@ -54,10 +54,10 @@ return array(
 
 		'mysql' => array(
 			'driver'    => 'mysql',
-			'host'      => isset($_SERVER['DB2_HOST']) ? $_SERVER['tunnel.pagodabox.com:3307'] : 'localhost',
-			'database'  => isset($_SERVER['DB2_NAME']) ? $_SERVER['proyectodb'] : 'proyectodb',
-			'username'  => isset($_SERVER['DB2_USER']) ? $_SERVER['jamie'] : 'root',
-			'password'  => isset($_SERVER['DB2_PASS']) ? $_SERVER['8fqxa2Pg'] : 'root',
+			'host'      => isset($_SERVER['DB2_HOST']) ? $_SERVER['DB2_HOST'] : 'tunnel.pagodabox.com:3307',
+			'database'  => isset($_SERVER['DB2_NAME']) ? $_SERVER['DB2_NAME'] : 'proyectodb',
+			'username'  => isset($_SERVER['DB2_USER']) ? $_SERVER['DB2_USER'] : 'jamie',
+			'password'  => isset($_SERVER['DB2_PASS']) ? $_SERVER['DB2_PASS'] : '8fqxa2Pg',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
