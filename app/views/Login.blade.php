@@ -23,22 +23,4 @@
 		<input type="submit" value="Ingresar" />
 	{{ Form::close() }}
 
-<h2>
-  Registro
-</h2>
-@if (Session::has('mensaje_registro'))
-	<span>{{ Session::get('mensaje_registro') }}</span>
-@endif
- 
-{{ Form::open(array('url' => 'registro')) }}
-    
-    {{ Form::label('user', 'Usuario'); }}
-    {{ Form::text('user'); }}
-    {{ Form::label('email', 'Correo'); }}
-    {{ Form::text('email'); }}
-    {{ Form::label('password', 'Clave'); }}
-    {{ Form::password('password'); }}
-    {{ Form::submit('Registrar'); }}
- 
-{{ Form::close() }}
 @stop
