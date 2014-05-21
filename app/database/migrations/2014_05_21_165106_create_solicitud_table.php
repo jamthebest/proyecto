@@ -12,13 +12,13 @@ class CreateSolicitudTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('solicitud', function($table){
+		Schema::table('proyectodb.solicitud', function($table){
 	       $table->create();
-	       $table->increments('id',11);
-	       $table->integer('user',11);
+	       $table->increments('id');
+	       $table->integer('user');
 	       $table->string('tema',128);
 	       $table->string('descripcion',256);
-	       $table->integer('procesada',11);
+	       $table->integer('procesada');
 	       $table->string('remember_token');
 	       $table->timestamps();
     	});

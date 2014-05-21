@@ -12,12 +12,12 @@ class CreateMensajeTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('mensaje', function($table){
+		Schema::table('proyectodb.mensaje', function($table){
 	       $table->create();
-	       $table->increments('id',11);
+	       $table->increments('id');
 	       $table->string('codigo',20);
 	       $table->string('descripcion',256);
-	       $table->integer('activo',11);
+	       $table->integer('activo');
 	       $table->timestamps();
     	});
 	}

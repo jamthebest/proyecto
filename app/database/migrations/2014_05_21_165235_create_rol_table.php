@@ -12,9 +12,9 @@ class CreateRolTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('rol', function($table){
+		Schema::table('proyectodb.rol', function($table){
 	       $table->create();
-	       $table->increments('id',11);
+	       $table->increments('id');
 	       $table->string('nombre',45);
 	       $table->string('descripcion',256);
 	       $table->timestamps();

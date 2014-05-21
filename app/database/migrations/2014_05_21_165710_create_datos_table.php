@@ -12,14 +12,14 @@ class CreateDatosTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('datos', function($table){
+		Schema::table('proyectodb.datos', function($table){
 	       $table->create();
-	       $table->increments('id',11);
+	       $table->increments('id');
 	       $table->string('nombre',256);
 	       $table->string('empresa',128);
 	       $table->string('cargo',128);
 	       $table->string('telefono',15);
-	       $table->integer('user',11);
+	       $table->integer('user');
 	       $table->timestamps();
     	});
 	}

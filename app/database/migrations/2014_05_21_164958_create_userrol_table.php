@@ -12,10 +12,10 @@ class CreateUserrolTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('userroles', function($table){
+		Schema::table('proyectodb.userroles', function($table){
 	       $table->create();
-	       $table->integer('user',11);
-	       $table->integer('rol',11);
+	       $table->integer('user');
+	       $table->integer('rol');
 	       $table->timestamps();
     	});
 	}

@@ -12,12 +12,12 @@ class CreateComentarioTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('comentario', function($table){
+		Schema::table('proyectodb.comentario', function($table){
 	       $table->create();
-	       $table->increments('id',11);
-	       $table->integer('user',11);
+	       $table->increments('id');
+	       $table->integer('user');
 	       $table->string('descripcion',256);
-	       $table->integer('leido',11);
+	       $table->integer('leido');
 	       $table->timestamps();
     	});
 	}

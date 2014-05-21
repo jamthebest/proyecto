@@ -12,13 +12,13 @@ class CreateCarreraTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('carrera', function($table){
+		Schema::table('proyectodb.carrera', function($table){
 	       $table->create();
-	       $table->increments('id',11);
+	       $table->increments('id');
 	       $table->string('codigo',10);
 	       $table->string('nombre',128);
 	       $table->string('descripcion',256);
-	       $table->integer('activo',11);
+	       $table->integer('activo');
 	       $table->timestamps();
     	});
 	}
