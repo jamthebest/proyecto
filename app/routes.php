@@ -18,6 +18,8 @@ Route::get('/', function()
 
 Route::get('Inicio', array('as' => 'Inicio', 'uses' =>'InicioController@inicio'));
 
+Route::get('Ejemplos', array('as' => 'Ejemplos', 'uses' =>'InicioController@ejemplos'));
+
 Route::get('/Informacion', function()
 {
 	return View::make('Informacion');

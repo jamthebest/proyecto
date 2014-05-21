@@ -55,9 +55,9 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => isset($_SERVER['DB2_HOST']) ? $_SERVER['DB2_HOST'] : 'localhost',
-			'database'  => isset($_SERVER['DB2_NAME']) ? $_SERVER['DB2_NAME'] : 'proyectodb',
-			'username'  => isset($_SERVER['DB2_USER']) ? $_SERVER['DB2_USER'] : 'root',
-			'password'  => isset($_SERVER['DB2_PASS']) ? $_SERVER['DB2_PASS'] : 'root',
+			'database'  => isset($_SERVER['DB2_NAME']) ? $_SERVER['tunnel.pagodabox.com:3307'] : 'proyectodb',
+			'username'  => isset($_SERVER['DB2_USER']) ? $_SERVER['jamie'] : 'root',
+			'password'  => isset($_SERVER['DB2_PASS']) ? $_SERVER['8fqxa2Pg'] : 'root',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',

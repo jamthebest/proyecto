@@ -10,4 +10,9 @@ class InicioController extends BaseController {
 		return View::make('Inicio');
 	}
 
+	public function ejemplos()
+	{
+		return View::make('Ejemplos');
+	}
+
 }

@@ -42,14 +42,7 @@
               </li>
 
           <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Áreas Disponibles <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Área 1</a></li>
-                  <li><a href="#">Área 2</a></li>
-                  <li><a href="#">Área 3</a></li>
-                  <li class="divider"></li>
-                  <li><a href="#">Otro</a></li>
-                </ul>
+                <a href="Ejemplos" class="dropdown-toggle">Ejemplos de Casos</a>
               </li>
 
               <li class="dropdown">
