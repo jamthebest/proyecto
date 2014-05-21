@@ -10,7 +10,7 @@
     	<div class="col-md-3"><h2>Ingreso > <small></small></h2></div>
 	</div>
 
-	@if(Session::get('message'))
+	@if(Session::has('message'))
 		<div class="alert alert-danger fade in">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
             {{ Session::get('message') }}
@@ -18,9 +18,14 @@
 	@endif
 
 	{{ Form::open(array('url' => '/Login', 'method' => 'POST')) }}
-		Usuario <input type="text" name="user" /> <br />
-		Contraseña <input type="password" name="password" /> <br />
-		<input type="submit" value="Ingresar" />
+		<div class="col-md-5 col-md-offset-3" style="margin-top:8%">
+			<label for="user">Usuario:</label>
+			{{ Form::text('user',null, array('style' => 'margin-bottom:5%;', 'class' => 'form-control', 'id' => 'user', 'placeholder' => 'Usuario', 'autofocus')) }}
+			<label for="password">Contraseña:</label>
+			{{ Form::password('password', array('style' => 'margin-bottom:10%;', 'class' => 'form-control', 'id' => 'password', 'placeholder' => 'Contraseña')) }}
+			{{ Form::submit('Ingrersar', array('class' => 'btn btn-lg btn-primary btn-block')) }}
+		    
+	    </div>
 	{{ Form::close() }}
 
 @stop
