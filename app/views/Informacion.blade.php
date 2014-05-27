@@ -13,7 +13,7 @@
 		dentro de las cuales cada una cuenta con docentes altamente calificados y especializados, para brindar atención personalizada 
 		y lograr su satisfacción.</h2>
 	</div>
-	<div class="col-md-6" style="margin-top:2%; width:400px;height:400px;">
+	<div class="col-md-6" style="margin-top:2%; width:400px;height:350px;">
       <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
           <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
@@ -34,7 +34,7 @@
       </div>
   </div>
 
-  <div class="col-md-6" style="margin-top:2%; width:400px;height:400px;">
+  <div class="col-md-6" style="margin-top:2%; width:400px;height:350px;">
       <div id="carousel-example-generic2" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
           <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>

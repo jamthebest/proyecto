@@ -15,7 +15,7 @@
 <body style="margin-top: 50px">
   <header>
       <nav class="navbar navbar-fixed-top navbar-inverse" role="navigation">
-        <a class="navbar-brand" href="Inicio"> {{HTML::image('/images/icon.png');}} XXXXX</a>
+        <a class="navbar-brand" href="Inicio" style="margin-top:-1%;"> {{HTML::image('/images/logo.jpg');}} XXXXX</a>
         <ul class="nav navbar-nav navbar-left">
           <li class="dropdown">
             {{link_to('Inicio', 'Inicio', $attributes = array(), $secure = null)}}
@@ -53,5 +53,8 @@
   <div class="container col-md-8 col-md-offset-2">
     @yield('main')
   </div>
+  <nav class="navbar navbar-default navbar-fixed-bottom text-center" role="navigation">
+    {{HTML::image('/images/logo_unitec.jpg');}}
+  </nav>
 </body>
 </html>

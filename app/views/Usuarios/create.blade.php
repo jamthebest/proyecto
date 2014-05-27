@@ -53,7 +53,7 @@
         {{ Form::password('password', array('class' => 'form-control', 'id' => 'password', 'placeholder' => 'Contraseña')) }}
         <span class="help-block">La Contraseña Debe Tener Más de 5 Letras y/o Dígitos.</span>
     </div>
-    <div class="col-md-2 col-md-push-5">
+    <div class="col-md-2 col-md-push-5" style="margin-bottom:8%;">
         {{ Form::submit('Crear Cuenta', array('class' => 'btn btn-lg btn-primary btn-block')) }}
     </div>
 </div>
