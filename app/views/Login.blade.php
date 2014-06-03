@@ -18,7 +18,7 @@
 	@endif
 
 	{{ Form::open(array('url' => '/Login', 'method' => 'POST')) }}
-		<div class="col-md-5 col-md-offset-3" style="margin-top:8%">
+		<div class="col-md-5 col-md-offset-3" style="margin-top:5%">
 			<label for="user">Usuario:</label>
 			{{ Form::text('user',null, array('style' => 'margin-bottom:5%;', 'class' => 'form-control', 'id' => 'user', 'placeholder' => 'Usuario', 'autofocus')) }}
 			<label for="password">Contraseña:</label>
@@ -27,5 +27,10 @@
 		    
 	    </div>
 	{{ Form::close() }}
+
+	<div class="col-md-11 text-center">
+		<h4><br><br>¿Aún No Tiene una Cuenta?<br>
+		<a href="Registro"><strong>Regístrese aquí.</strong></a></h4>
+	</div>
 
 @stop

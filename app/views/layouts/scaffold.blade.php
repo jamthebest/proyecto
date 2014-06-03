@@ -9,8 +9,6 @@
   {{HTML::script('js/bootstrap.min.js');}}
   {{HTML::style('/bootstrap/css/bootstrap.min.css');}}
   {{HTML::style('/assets/css/general.css');}}
-  {{HTML::style('/bootstrap/css/css/bootstrap.min.css');}}
-  {{HTML::style('/css/main.css');}}
 </head>
 <body style="margin-top: 50px">
   <header>
