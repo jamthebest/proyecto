@@ -48,11 +48,11 @@
         @endif
       </nav>
     </header>
-  <div class="container col-md-8 col-md-offset-2">
+  <div class="container col-md-8 col-md-offset-2" style="margin-bottom:4%">
     @yield('main')
   </div>
   <nav class="navbar navbar-default navbar-fixed-bottom text-center" role="navigation">
-    {{HTML::image('/images/logo_unitec.jpg');}}
+    {{HTML::image('/images/logo_unitec.png');}}
   </nav>
 </body>
 </html>

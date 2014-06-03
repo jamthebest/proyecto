@@ -14,7 +14,7 @@
 @endif
 
 <div class="row">
-	<div class="col-md-6 span6" style="margin-top:10%; width:400px;height:400px;">
+	<div class="col-md-6 span6" style="margin-top:13%; width:400px;height:400px;">
       <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
           <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>

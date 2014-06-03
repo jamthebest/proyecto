@@ -10,7 +10,7 @@ class Usuario extends Eloquent{
 		'id' => '',
 		'user' => 'required|unique:usuario',
 		'email' => 'required|email|unique:usuario',
-		'password' => 'required',
+		'password' => 'required|min:6',
 		'activo' => ''
 	);
 }

@@ -37,6 +37,7 @@
 	<footer>
 		<br>Nota: Los presentes escenarios son ficticios, que tienen como único fin orientar al usuario de 
 		XXXXX, para mostrar lo que los profesionales que están dentro del programa son capaces de solucionar.
+		<br><br>
 	</footer>
 
 @stop

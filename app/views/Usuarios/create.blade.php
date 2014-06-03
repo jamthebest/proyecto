@@ -48,12 +48,11 @@
         <span class="help-block"><strong>Atención.</strong> Este nombre se Utilizará para Ingresar a su Cuenta</span>
         <label for="email">Correo Electrónico:</label>
         {{ Form::text('email',null, array('class' => 'form-control', 'id' => 'email', 'placeholder' => 'Correo Electrónico')) }}
-        <span class="help-block">Se Enviará un Correo de Verificación a Esta Dirección</span>
-        <label for="password">Contraseña:</label>
+        <label for="password" style="margin-top:4%">Contraseña:</label>
         {{ Form::password('password', array('class' => 'form-control', 'id' => 'password', 'placeholder' => 'Contraseña')) }}
-        <span class="help-block">La Contraseña Debe Tener Más de 5 Letras y/o Dígitos.</span>
+        <span class="help-block">La Contraseña debe tener por lo menos 6 letras y/o dígitos.</span>
     </div>
-    <div class="col-md-2 col-md-push-5" style="margin-bottom:8%;">
+    <div class="col-md-3 col-md-push-4" style="margin-bottom:8%;margin-left:5%">
         {{ Form::submit('Crear Cuenta', array('class' => 'btn btn-lg btn-primary btn-block')) }}
     </div>
 </div>
