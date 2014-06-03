@@ -30,15 +30,9 @@ Route::get('/Categorias', function()
     return View::make('Categorias');
 });
 
-Route::get('/Pregrado', function()
-{
-    return View::make('Pregrado');
-});
+Route::get('Postgrado', array('as' => 'Postgrado', 'uses' =>'CarrerasController@Postgrado'));
 
-Route::get('/Postgrado', function()
-{
-    return View::make('Postgrado');
-});
+Route::get('Pregrado', array('as' => 'Pregrado', 'uses' =>'CarrerasController@Pregrado'));
 
 Route::get('/Login', ['before' => 'guest', function(){
 	return View::make('Login');

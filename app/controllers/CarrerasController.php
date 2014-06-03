@@ -128,4 +128,19 @@ class CarrerasController extends BaseController {
 		return Redirect::route('Carreras.index');
 	}
 
+
+	public function Postgrado()
+	{
+		$Tecnicos = Carrera::where('grado', 'GRADO ASOCIADO')->get();
+		$Maestrias = Carrera::Where('grado', 'MAESTRÍA')->get();
+		//return $Carreras;
+		return View::make('Postgrado', compact('Maestrias', 'Tecnicos'));
+	}
+
+	public function Pregrado()
+	{
+		$Licenciaturas = Carrera::where('grado', 'LICENCIATURA')->orWhere('grado', 'MEDICINA')->get();
+		$Ingenierias = Carrera::where('grado', 'INGENIERÍA')->get();
+		return View::make('Pregrado', compact('Licenciaturas', 'Ingenierias'));
+	}
 }
