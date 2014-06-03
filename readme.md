@@ -9,7 +9,7 @@ You can install the Quickstart either directly from the [Pagoda Box App Cafe](ht
 ## Local Development Installation
 
 * Clone repository locally  
-  `git clone git@github.com:briankiewel/pagodabox-laravel-4.git`
+  `git clone git@git.pagodabox.com:proyecto.git`
 * If [Composer](http://getcomposer.org/) is not already installed locally, install it
 * Install the Laravel dependencies  
   `composer install`
