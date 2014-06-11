@@ -68,7 +68,7 @@ class CarrerasController extends BaseController {
 	public function show($id)
 	{
 		$Carrera = $this->Carrera->findOrFail($id);
-
+		
 		return View::make('Carreras.show', compact('Carrera'));
 	}
 

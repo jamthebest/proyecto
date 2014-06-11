@@ -6,6 +6,27 @@
 	<div class="col-md-3"><h2>Categorías > <small></small></h2></div>
 </div>
 
+@if ($errors->any())
+	<div class="alert alert-danger fade in">
+	    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+	    @if($errors->count() > 1)
+		  	<h4>Oh no! Se encontraron errores!</h4>
+		@else
+		   	<h4>Oh no! Se encontró un error!</h4>
+		@endif
+		<ul>
+		    {{ implode('', $errors->all('<li class="error">:message</li>')) }}
+		</ul>
+	</div>
+@else
+	@if (Session::has('message'))
+		<div class="alert alert-success fade in">
+      		<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+      		{{ Session::get('message') }}
+		</div>
+	@endif
+@endif
+
 <div class="row" >
 	<div class="col-md-10 col-md-offset-1">
 		<h4><br>Cada Categoría represanta la oferta académica de Unitec y se dividen en pregrado y

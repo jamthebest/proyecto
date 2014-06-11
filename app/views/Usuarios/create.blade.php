@@ -58,6 +58,7 @@
 </div>
     <script>$("#iusername").focus();</script>
     <div class="push"></div>
+    {{ Form::hidden('tipo', 'Usuario') }}
     {{ Form::hidden('created_at', date('Y-m-d H:i:s')) }}
     {{ Form::hidden('updated_at', date('Y-m-d H:i:s')) }}
     {{ Form::close() }}

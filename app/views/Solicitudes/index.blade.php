@@ -43,7 +43,7 @@
     <div class="col-md-10 col-md-offset-5"> 
     	<br><br>
     	{{ Form::hidden('procesada', '0') }}
-		{{ Form::hidden('user', '1') }}
+		{{ Form::hidden('user', Auth::user()->id) }}
 		{{ Form::hidden('created_at', date('Y-m-d H:i:s')) }}
 		{{ Form::hidden('updated_at', date('Y-m-d H:i:s')) }}
     	{{ Form::submit('Enviar', array('class' => 'btn btn-success btn-lg')) }}

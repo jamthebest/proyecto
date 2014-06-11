@@ -69,8 +69,9 @@ class SolicitudesController extends BaseController {
 	public function show($id)
 	{
 		$Solicitud = $this->Solicitud->findOrFail($id);
+		$Usuario = Usuario::find($Solicitud->user);
 
-		return View::make('Solicitudes.show', compact('Solicitud'));
+		return View::make('Solicitudes.show', compact('Solicitud', 'Usuario'));
 	}
 
 	/**
@@ -128,6 +129,43 @@ class SolicitudesController extends BaseController {
 		$this->Solicitud->find($id)->delete();
 
 		return Redirect::route('Solicitudes.index');
+	}
+
+	public function guardar()
+	{
+		$input = Input::all();
+		$validation = Validator::make($input, Solicitud::$rules);
+		
+		if ($validation->passes())
+		{
+			$this->Solicitud->create($input);
+			
+			return Redirect::back()
+				->with('message', 'Solicitud enviada exitosamente!');
+		}
+
+		return Redirect::back()
+			->withInput()
+			->withErrors($validation)
+			->with('message', 'Hay errores en la Solicitud');
+	}
+
+	public function revisar()
+	{
+		$Solicitudes = Solicitud::all();
+		$Usuarios = Usuario::all();
+		
+		return View::make('Solicitudes.revisar', compact('Solicitudes', 'Usuarios'));
+	}
+
+	public function procesar($id)
+	{
+		$Solicitud = $this->Solicitud->find($id);
+		$Solicitud->procesada = 1;
+		$Solicitud->save();
+		$Usuario = Usuario::find($Solicitud->user);
+
+		return View::make('Solicituds.show', compact('Solicitud', 'Usuario'));
 	}
 
 }

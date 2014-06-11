@@ -2,18 +2,19 @@
 
 @section('main')
 
-<h1>All Mensajes</h1>
-
-<p>{{ link_to_route('Mensajes.create', 'Add new Mensaje') }}</p>
+<div class="row">
+	<div class="col-md-10"><h2><span class="glyphicon glyphicon-envelope"></span> Mensajes <small></small></h2></div>
+</div>
 
 @if ($Mensajes->count())
 	<table class="table table-striped table-bordered">
 		<thead>
 			<tr>
 				<th>Id</th>
-				<th>Codigo</th>
-				<th>Descripcion</th>
-				<th>Activo</th>
+				<th>De</th>
+				<th>Asunto</th>
+				<th>Mensaje</th>
+				<th>Fecha</th>
 			</tr>
 		</thead>
 
@@ -21,21 +22,18 @@
 			@foreach ($Mensajes as $Mensaje)
 				<tr>
 					<td>{{{ $Mensaje->id }}}</td>
-					<td>{{{ $Mensaje->Codigo }}}</td>
-					<td>{{{ $Mensaje->Descripcion }}}</td>
-					<td>{{{ $Mensaje->Activo }}}</td>
-                    <td>{{ link_to_route('Mensajes.edit', 'Edit', array($Mensaje->id), array('class' => 'btn btn-info')) }}</td>
-                    <td>
-                        {{ Form::open(array('method' => 'DELETE', 'route' => array('Mensajes.destroy', $Mensaje->id))) }}
-                            {{ Form::submit('Delete', array('class' => 'btn btn-danger')) }}
-                        {{ Form::close() }}
-                    </td>
+					<td>{{{ $Usuarios[$Mensaje->user - 1]->user }}}</td>
+					<td>{{{ $Mensaje->asunto }}}</td>
+					<td>{{{ $Mensaje->descripcion }}}</td>
+          <td>{{{ $Mensaje->created_at }}}</td>
 				</tr>
 			@endforeach
 		</tbody>
 	</table>
 @else
-	There are no Mensajes
+	<div class="alert alert-danger">
+    <strong>Oh no!</strong> No hay Mensajes
+  </div>
 @endif
 
 @stop

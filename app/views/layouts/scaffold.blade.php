@@ -23,6 +23,7 @@
             {{link_to('Informacion', 'Información', $attributes = array(), $secure = null)}}
           </li>
 
+          @if (!Auth::check() || Auth::user()->tipo != 'Administrador')
           <li class="dropdown">
             {{link_to('Categorias', 'Categorías de Interés', $attributes = array(), $secure = null)}}
           </li>
@@ -30,7 +31,7 @@
           <li class="dropdown">
             {{link_to('Ejemplos', 'Ejemplos de Casos', $attributes = array(), $secure = null)}}
           </li>
-
+          
           <li class="dropdown">
             {{link_to('Solicitudes', 'Solicitudes', $attributes = array(), $secure = null)}}
           </li>
@@ -38,10 +39,23 @@
           <li class="dropdown">
             {{link_to('Comentarios', 'Comentarios', $attributes = array(), $secure = null)}}
           </li>
+          @endif
+          @if (Auth::check() && Auth::user()->tipo == 'Administrador')
+            <li class="dropdown">
+              {{link_to_route('Solicitudes.revisar', 'Ver Solicitudes', $attributes = array(), $secure = null)}}
+            </li>
+            <li class="dropdown">
+              {{link_to_route('Comentarios.revisar', 'Ver Comentarios', $attributes = array(), $secure = null)}}
+            </li>
+          @endif
         </ul>
         @if (Auth::user())
+          <div style="display:none;">
+            {{ $Men = Mensaje::where('destinatario', Auth::user()->id)->where('leido', '0')->count() }}
+          </div>
             <p class="navbar-text navbar-right" style="margin-right: 1em;">{{link_to('Logout', 'Salir', $attributes = array(), $secure = null)}}</p>
             <p class="navbar-text navbar-right" style="margin-right: 1em;">{{link_to('Usuarios/'.Auth::user()->id, Auth::user()->user, $attributes = array(), $secure = null)}}</p>
+            <p class="navbar-text navbar-right" style="margin-right: 1em;">{{link_to('Mensajes', $Men, array('class' => 'glyphicon glyphicon-globe'), $secure = null)}}</p>
         @else
             <p class="navbar-text navbar-right" style="margin-right: 1em;">{{link_to('Registro', 'Registrarse', $attributes = array(), $secure = null)}}</p>
             <p class="navbar-text navbar-right" style="margin-right: 1em;">{{link_to('Login', 'Ingresar', $attributes = array(), $secure = null)}}</p>

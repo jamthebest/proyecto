@@ -3,12 +3,14 @@
 class Mensaje extends Eloquent {
 	protected $guarded = array();
 
-	protected $table = 'mensaje';
+	protected $table = 'mensajes';
 
 	public static $rules = array(
 		'id' => '',
-		'codigo' => 'required',
+		'destinatario' => 'required',
+		'user' => 'required',
+		'asunto' => 'required',
 		'descripcion' => 'required',
-		'activo' => ''
+		'leido' => ''
 	);
 }

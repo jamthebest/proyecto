@@ -21,9 +21,10 @@ class MensajesController extends BaseController {
 	 */
 	public function index()
 	{
-		$Mensajes = $this->Mensaje->all();
+		$Mensajes = $this->Mensaje->where('destinatario', Auth::user()->id)->orderBy('id', 'DESC')->get();
+		$Usuarios = Usuario::all();
 
-		return View::make('Mensajes.index', compact('Mensajes'));
+		return View::make('Mensajes.index', compact('Mensajes', 'Usuarios'));
 	}
 
 	/**
@@ -126,6 +127,31 @@ class MensajesController extends BaseController {
 		$this->Mensaje->find($id)->delete();
 
 		return Redirect::route('Mensajes.index');
+	}
+
+	public function guardar($id)
+	{
+		$input = Input::all();
+		$validation = Validator::make($input, Mensaje::$rules);
+
+		if ($validation->passes())
+		{
+			$Solicitud = Solicitud::find($id);
+			$Solicitud->procesada = 1;
+			$Solicitud->save();
+
+			Mensaje::create($input);
+
+			$Usuario = Usuario::find($Solicitud->user);
+
+			return View::make('Solicitudes.show', compact('Solicitud', 'Usuario'))
+				->with('message', 'Mensaje Enviado!');
+		}
+
+		return Redirect::back()
+			->withInput()
+			->withErrors($validation)
+			->with('message', 'There were validation errors.');
 	}
 
 }

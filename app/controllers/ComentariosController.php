@@ -69,8 +69,9 @@ class ComentariosController extends BaseController {
 	public function show($id)
 	{
 		$Comentario = $this->Comentario->findOrFail($id);
+		$Usuario = Usuario::find($Comentario->user);
 
-		return View::make('Comentarios.show', compact('Comentario'));
+		return View::make('Comentarios.show', compact('Comentario', 'Usuario'));
 	}
 
 	/**
@@ -127,6 +128,24 @@ class ComentariosController extends BaseController {
 		$this->Comentario->find($id)->delete();
 
 		return Redirect::route('Comentarios.index');
+	}
+
+	public function revisar()
+	{
+		$Comentarios = Comentario::all();
+		$Usuarios = Usuario::all();
+		
+		return View::make('Comentarios.revisar', compact('Comentarios', 'Usuarios'));
+	}
+
+	public function leer($id)
+	{
+		$Comentario = $this->Comentario->find($id);
+		$Comentario->leido = 1;
+		$Comentario->save();
+		$Usuario = Usuario::find($Comentario->user);
+
+		return View::make('Comentarios.show', compact('Comentario', 'Usuario'));
 	}
 
 }

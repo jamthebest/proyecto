@@ -49,10 +49,15 @@ Route::post('Registro', array('as' => 'Registrar', 'uses' =>'UsuariosController@
 
 Route::group(array('before' => 'auth'), function()
 {
+	Route::post('Comentarios/{id}', array('as' => 'Comentarios.leer', 'uses' =>'ComentariosController@leer'));
+	Route::post('Solicitudes/{id}', array('as' => 'Solicitudes.procesar', 'uses' =>'SolicitudesController@procesar'));
+    Route::get('Solicitudes/Revisar', array('as' => 'Solicitudes.revisar', 'uses' =>'SolicitudesController@revisar'));
+    Route::get('Comentarios/Revisar', array('as' => 'Comentarios.revisar', 'uses' =>'ComentariosController@revisar'));
     Route::resource('Comentarios', 'ComentariosController');
     Route::resource('Solicitudes', 'SolicitudesController');
+    Route::post('Solicitudes', array('as' => 'Solicitudes.guardar', 'uses' =>'SolicitudesController@guardar'));
 });
-
+Route::post('Mensajes/Enviar/{id}', array('as' => 'Mensajes.guardar', 'uses' =>'MensajesController@guardar'));
 Route::resource('Usuarios', 'UsuariosController');
 
 Route::resource('Datos', 'DatosController');
@@ -60,3 +65,5 @@ Route::resource('Datos', 'DatosController');
 Route::resource('Rols', 'RolsController');
 
 Route::resource('Carreras', 'CarrerasController');
+
+Route::resource('Mensajes', 'MensajesController');
