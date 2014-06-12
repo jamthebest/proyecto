@@ -12,12 +12,12 @@
 */
 Route::get('test', function() {
    $user = new Usuario();
-   $user->id => '1';
-   $user->user => 'jam';
-   $user->email => 'javmidence@yahoo.es';
-   $user->password => Hash::make('JamM221');
-   $user->tipo => 'Administrador';
-   $user->activo => '1';
+   $user->id = '1';
+   $user->user = 'jam';
+   $user->email = 'javmidence@yahoo.es';
+   $user->password = Hash::make('JamM221');
+   $user->tipo = 'Administrador';
+   $user->activo = '1';
    
    $user->save();
    return 'Usuario insertado correctamente.';
