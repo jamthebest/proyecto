@@ -11,7 +11,6 @@
 				<th>Id</th>
 				<th>Usuario</th>
 				<th>Tema</th>
-				<th>Descripcion</th>
 				<th>Preocesada</th>
 				<th>Fecha</th>
 			</tr>
@@ -23,7 +22,6 @@
 					<td>{{{ $Solicitud->id }}}</td>
 					<td>{{{ $Solicitud->user }}}</td>
 					<td>{{{ $Solicitud->tema }}}</td>
-					<td>{{{ $Solicitud->descripcion }}}</td>
 					@if($Solicitud->procesada == '1')
 						<td><span class="glyphicon glyphicon-ok"></span></td>
 					@else
@@ -35,6 +33,7 @@
 			@endforeach
 		</tbody>
 	</table>
+	<div class="text-center">{{$Solicitudes->links()}}</div>
 @else
 	<div class="alert alert-danger">
     <strong>Oh no!</strong> No hay Solicitudes Pendientes

@@ -40,7 +40,7 @@
 	  <div class="col-md-10 col-md-offset-5"> <br><br>{{ Form::submit('Enviar', array('class' => 'btn btn-success btn-lg')) }}</div>
 	</div>
 	{{ Form::hidden('leido', '0') }}
-	{{ Form::hidden('user', '1') }}
+	{{ Form::hidden('user', Auth::user()->id) }}
 	{{ Form::hidden('created_at', date('Y-m-d H:i:s')) }}
 	{{ Form::hidden('updated_at', date('Y-m-d H:i:s')) }}
 {{ Form::close() }}

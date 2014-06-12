@@ -71,6 +71,14 @@ class UsuariosController extends BaseController {
 			$dato['updated_at'] = $input['updated_at'];
 			Dato::create($dato);
 
+			$username = $input['user'];
+			$password = $input['password'];
+			if (Auth::attempt(['user' => $username, 'password' => $password]))
+			{
+				return Redirect::to('Inicio')
+					->with('message', 'Usuario Creado Exitosamente!');
+			}
+
 			return Redirect::route('Inicio')
 				->with('message', 'Usuario Creado Exitosamente!');
 		}

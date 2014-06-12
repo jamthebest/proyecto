@@ -152,7 +152,7 @@ class SolicitudesController extends BaseController {
 
 	public function revisar()
 	{
-		$Solicitudes = Solicitud::all();
+		$Solicitudes = Solicitud::orderBy('id', 'DESC')->paginate(10);
 		$Usuarios = Usuario::all();
 		
 		return View::make('Solicitudes.revisar', compact('Solicitudes', 'Usuarios'));

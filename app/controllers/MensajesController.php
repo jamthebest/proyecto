@@ -21,7 +21,7 @@ class MensajesController extends BaseController {
 	 */
 	public function index()
 	{
-		$Mensajes = $this->Mensaje->where('destinatario', Auth::user()->id)->orderBy('id', 'DESC')->get();
+		$Mensajes = $this->Mensaje->where('destinatario', Auth::user()->id)->orderBy('id', 'DESC')->paginate(10);
 		$Usuarios = Usuario::all();
 
 		return View::make('Mensajes.index', compact('Mensajes', 'Usuarios'));
@@ -51,10 +51,11 @@ class MensajesController extends BaseController {
 		{
 			$this->Mensaje->create($input);
 
-			return Redirect::route('Mensajes.index');
+			return Redirect::back()
+				->with('message', 'Mensaje Enviado Correctamente!');
 		}
 
-		return Redirect::route('Mensajes.create')
+		return Redirect::back()
 			->withInput()
 			->withErrors($validation)
 			->with('message', 'There were validation errors.');
@@ -69,8 +70,9 @@ class MensajesController extends BaseController {
 	public function show($id)
 	{
 		$Mensaje = $this->Mensaje->findOrFail($id);
+		$Usuario = Usuario::find($Mensaje->user);
 
-		return View::make('Mensajes.show', compact('Mensaje'));
+		return View::make('Mensajes.show', compact('Mensaje', 'Usuario'));
 	}
 
 	/**
@@ -152,6 +154,16 @@ class MensajesController extends BaseController {
 			->withInput()
 			->withErrors($validation)
 			->with('message', 'There were validation errors.');
+	}
+
+	public function leer($id)
+	{
+		$Mensaje = $this->Mensaje->find($id);
+		$Mensaje->leido = 1;
+		$Mensaje->save();
+		$Usuario = Usuario::find($Mensaje->user);
+
+		return View::make('Mensajes.show', compact('Mensaje', 'Usuario'));
 	}
 
 }

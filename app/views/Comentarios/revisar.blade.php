@@ -10,7 +10,6 @@
 			<tr>
 				<th>Id</th>
 				<th>Usuario</th>
-				<th>Descripcion</th>
 				<th>Leido</th>
 				<th>Fecha</th>
 			</tr>
@@ -21,7 +20,6 @@
 				<tr>
 					<td>{{{ $Comentario->id }}}</td>
 					<td>{{{ $Usuarios[$Comentario->user-1]->user }}}</td>
-					<td>{{{ $Comentario->descripcion }}}</td>
 					@if($Comentario->leido == '1')
 						<td><span class="glyphicon glyphicon-ok"></span></td>
 					@else
@@ -41,6 +39,7 @@
 			@endforeach
 		</tbody>
 	</table>
+	<div class="text-center">{{$Comentarios->links()}}</div>
 @else
 	<div class="alert alert-danger">
     <strong>Oh no!</strong> No hay Comentarios Pendientes

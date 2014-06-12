@@ -13,7 +13,7 @@
 				<th>Id</th>
 				<th>De</th>
 				<th>Asunto</th>
-				<th>Mensaje</th>
+				<th>Leido</th>
 				<th>Fecha</th>
 			</tr>
 		</thead>
@@ -24,12 +24,26 @@
 					<td>{{{ $Mensaje->id }}}</td>
 					<td>{{{ $Usuarios[$Mensaje->user - 1]->user }}}</td>
 					<td>{{{ $Mensaje->asunto }}}</td>
-					<td>{{{ $Mensaje->descripcion }}}</td>
+					@if($Mensaje->leido == '1')
+						<td><span class="glyphicon glyphicon-ok"></span></td>
+					@else
+						<td><span class="glyphicon glyphicon-remove"></span></td>
+					@endif
           <td>{{{ $Mensaje->created_at }}}</td>
+          @if ($Mensaje->leido == '0')
+					<td>
+						{{ Form::open(array('method' => 'POST', 'route' => array('Mensajes.leer', $Mensaje->id))) }}
+	            {{ Form::submit('Leer', array('class' => 'btn btn-success')) }}
+	          {{ Form::close() }}
+	        </td>
+	       	@else
+	       	<td>{{ link_to_route( 'Mensajes.show', ' Leer', array($Mensaje->id), array('class' => 'btn btn-success')) }}</td>
+	       	@endif
 				</tr>
 			@endforeach
 		</tbody>
 	</table>
+	<div class="text-center">{{$Mensajes->links()}}</div>
 @else
 	<div class="alert alert-danger">
     <strong>Oh no!</strong> No hay Mensajes

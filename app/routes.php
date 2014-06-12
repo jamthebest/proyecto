@@ -50,6 +50,7 @@ Route::post('Registro', array('as' => 'Registrar', 'uses' =>'UsuariosController@
 Route::group(array('before' => 'auth'), function()
 {
 	Route::post('Comentarios/{id}', array('as' => 'Comentarios.leer', 'uses' =>'ComentariosController@leer'));
+	Route::post('Mensajes/{id}', array('as' => 'Mensajes.leer', 'uses' =>'MensajesController@leer'));
 	Route::post('Solicitudes/{id}', array('as' => 'Solicitudes.procesar', 'uses' =>'SolicitudesController@procesar'));
     Route::get('Solicitudes/Revisar', array('as' => 'Solicitudes.revisar', 'uses' =>'SolicitudesController@revisar'));
     Route::get('Comentarios/Revisar', array('as' => 'Comentarios.revisar', 'uses' =>'ComentariosController@revisar'));

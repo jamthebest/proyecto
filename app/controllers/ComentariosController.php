@@ -132,7 +132,7 @@ class ComentariosController extends BaseController {
 
 	public function revisar()
 	{
-		$Comentarios = Comentario::all();
+		$Comentarios = Comentario::orderBy('id', 'DESC')->paginate(10);
 		$Usuarios = Usuario::all();
 		
 		return View::make('Comentarios.revisar', compact('Comentarios', 'Usuarios'));
