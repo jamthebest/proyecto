@@ -18,7 +18,7 @@ class CreateMensajeTable extends Migration {
 	       $table->integer('destinatario');
 	       $table->integer('user');
 	       $table->string('asunto', 64);
-	       $table->string('descripcion', 256)
+	       $table->string('descripcion', 256);
 	       $table->integer('leido');
 	       $table->timestamps();
     	});
