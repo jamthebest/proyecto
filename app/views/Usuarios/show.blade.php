@@ -2,36 +2,79 @@
 
 @section('main')
 
-<h1>Show Usuario</h1>
+<div class="row">
+	<div class="col-md-10"><h2><span class="glyphicon glyphicon-bullhorn"></span> Usuario <small></small></h2></div>
+</div>
 
-<p>{{ link_to_route('Usuarios.index', 'Return to all Usuarios') }}</p>
+@if ($errors->any())
+	<div class="alert alert-danger fade in">
+	    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+	    @if($errors->count() > 1)
+		  	<h4>Oh no! Se encontraron errores!</h4>
+		@else
+		   	<h4>Oh no! Se encontró un error!</h4>
+		@endif
+		<ul>
+		    {{ implode('', $errors->all('<li class="error">:message</li>')) }}
+		</ul>
+	</div>
+@else
+	@if (Session::has('message'))
+		<div class="alert alert-success fade in">
+      		<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+      		{{ Session::get('message') }}
+		</div>
+	@endif
+@endif
 
-<table class="table table-striped table-bordered">
-	<thead>
-		<tr>
-			<th>Id</th>
-				<th>User</th>
-				<th>Email</th>
-				<th>Pass</th>
-				<th>Activo</th>
-		</tr>
-	</thead>
+<div class="pull-right">
+	<p>{{ link_to('/', ' Inicio', array('class' => 'btn btn-success glyphicon glyphicon-home')) }}</p>
+</div>
 
-	<tbody>
-		<tr>
-			<td>{{{ $Usuario->id }}}</td>
-					<td>{{{ $Usuario->user }}}</td>
-					<td>{{{ $Usuario->email }}}</td>
-					<td>{{{ $Usuario->pass }}}</td>
-					<td>{{{ $Usuario->Activo }}}</td>
-                    <td>{{ link_to_route('Usuarios.edit', 'Edit', array($Usuario->id), array('class' => 'btn btn-info')) }}</td>
-                    <td>
-                        {{ Form::open(array('method' => 'DELETE', 'route' => array('Usuarios.destroy', $Usuario->id))) }}
-                            {{ Form::submit('Delete', array('class' => 'btn btn-danger')) }}
-                        {{ Form::close() }}
-                    </td>
-		</tr>
-	</tbody>
-</table>
+<div class="form-group col-md-12">
+	<div class="col-md-2 control-label">
+		<h3>ID</h3>
+	</div>
+	<div class="col-md-10">
+		<h3 class="control-label">{{{ $Usuario->id }}}</h3>
+	</div>
+</div>
+<div class="form-group col-md-12">
+	<div class="col-md-2 control-label">
+		<h3>Usuario</h3>
+	</div>
+	<div class="col-md-10">
+		<h3 class="control-label">{{{ $Usuario->user }}}</h3>
+	</div>
+</div>
+<div class="form-group col-md-12">
+	<div class="col-md-2 control-label">
+		<h3>Correo:</h3>
+	</div>
+	<div class="col-md-10">
+		<h3 class="control-label">{{{ $Usuario->email }}}</h3>
+	</div>
+</div>
+<div class="form-group col-md-12">
+	<div class="col-md-2 control-label">
+		<h3>Tipo:</h3>
+	</div>
+	<div class="col-md-10">
+		<h3 class="control-label">{{{ $Usuario->tipo }}}</h3>
+	</div>
+</div>
+<div class="form-group col-md-12">
+	<div class="col-md-2 control-label">
+		<h3>Fecha de Creación:</h3>
+	</div>
+	<div class="col-md-10">
+		<h3 class="control-label">{{{ $Usuario->created_at }}}</h3>
+	</div>
+</div>
+<!--
+<div class="col-md-6 pull-right">
+	<p>{{ link_to_route('Usuarios.edit', ' Editar', array($Usuario->id), array('class' => 'btn btn-primary glyphicon glyphicon-edit')) }}</p>
+</div>
+-->
 
 @stop

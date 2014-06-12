@@ -69,9 +69,9 @@ Route::group(array('before' => 'auth'), function()
     Route::resource('Comentarios', 'ComentariosController');
     Route::resource('Solicitudes', 'SolicitudesController');
     Route::post('Solicitudes', array('as' => 'Solicitudes.guardar', 'uses' =>'SolicitudesController@guardar'));
+    Route::resource('Usuarios', 'UsuariosController');
 });
 Route::post('Mensajes/Enviar/{id}', array('as' => 'Mensajes.guardar', 'uses' =>'MensajesController@guardar'));
-Route::resource('Usuarios', 'UsuariosController');
 
 Route::resource('Datos', 'DatosController');
 

@@ -22,9 +22,11 @@ class UsuariosController extends BaseController {
 	 */
 	public function index()
 	{
-		$Usuarios = $this->Usuario->all();
-
-		return View::make('Usuarios.index', compact('Usuarios'));
+		if (Auth::user()->tipo == 'Administrador') {
+			$Usuarios = $this->Usuario->all();
+			return View::make('Usuarios.index', compact('Usuarios'));
+		}
+		return Redirect::back()->withErrors('No tiene permisos para acceder a esta página!');
 	}
 
 	/**
