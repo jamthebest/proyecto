@@ -10,6 +10,18 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
+Route::get('test', function() {
+   $user = new Usuario();
+   $user->id => '1';
+   $user->user => 'jam';
+   $user->email => 'javmidence@yahoo.es';
+   $user->password => Hash::make('JamM221');
+   $user->tipo => 'Administrador';
+   $user->activo => '1';
+   
+   $user->save();
+   return 'Usuario insertado correctamente.';
+});
 
 Route::get('/', function()
 {
