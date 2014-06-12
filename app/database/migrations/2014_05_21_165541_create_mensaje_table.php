@@ -15,9 +15,11 @@ class CreateMensajeTable extends Migration {
 		Schema::table('proyectodb.mensaje', function($table){
 	       $table->create();
 	       $table->increments('id');
-	       $table->string('codigo',20);
-	       $table->string('descripcion',256);
-	       $table->integer('activo');
+	       $table->integer('destinatario');
+	       $table->integer('user');
+	       $table->string('asunto', 64);
+	       $table->string('descripcion', 256)
+	       $table->integer('leido');
 	       $table->timestamps();
     	});
 	}
