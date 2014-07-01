@@ -7,7 +7,7 @@
 @section('main')
 	
 	<div class="row">
-    	<div class="col-md-3"><h2>Ingreso > <small></small></h2></div>
+    	<div class="col-md-3"><h2>Ingreso <small></small></h2></div>
 	</div>
 
 	@if(Session::has('message'))

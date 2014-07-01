@@ -3,7 +3,7 @@
 @section('main')
 
 <div class="row">
-	<div class="col-md-5"><a href="Categorias"><h2>Categorías ></a> <small>Postgrado > </small></h2></div>
+	<div class="col-md-5"><a href="Categorias"><h2>Categorías </a> <small>Postgrado > </small></h2></div>
 </div>
 
 <div class="row" >

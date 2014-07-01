@@ -3,15 +3,13 @@
 @section('main')
 
 <div class="row">
-	<div class="col-md-5"><a href="Categorias"><h2>Categorías ></a> <small>Pregrado > </small></h2></div>
+	<div class="col-md-5"><a href="Categorias"><h2>Categorías ></a> <small>Pregrado </small></h2></div>
 </div>
 
 <div class="row" >
 	<div class="col-md-10 col-md-offset-1">
-		<h4>Unitec cuenta con varias Licenciaturas e Ingenierías, las cuales reunen a docentes 
-		altamente capacitados y preparados para brindar soluciones inteligentes a su 
-		organización.<br> A continuación le mostramos las distintas categorías en la sección 
-		de pregrado:<br><br></h4>
+		<h4>Las Categorías en las que ofrecemos servicios con docentes que imparten clases
+		en pregrado son:<br><br></h4>
 
 		<table class="table table-striped table-condensed col-md-5">
 			<thead>

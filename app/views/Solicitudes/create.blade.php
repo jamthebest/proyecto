@@ -5,7 +5,7 @@
 <h1>Create Solicitud</h1>
 
 <div class="row">
-    <div class="col-md-3"><h2>Solicitud > <small></small></h2></div>
+    <div class="col-md-3"><h2>Solicitud <small></small></h2></div>
 </div>
 {{ Form::open(array('route' => 'Comentarios.store')) }}
     <div class="form-group">

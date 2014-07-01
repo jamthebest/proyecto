@@ -3,7 +3,7 @@
 @section('main')
 
 <div class="row">
-	<div class="col-md-3"><h2>Inicio > <small></small></h2></div>
+	<div class="col-md-3"><h2>Inicio <small></small></h2></div>
 </div>
 
 @if(Session::has('message'))
@@ -41,8 +41,9 @@
 	
 	<div class="col-md-6" style="margin-top:2%;">
 		
-		<h2>Para mejorar el ambiente laboral del país, Unitec ha creado "XXXXX", un sevicio de asesoría para las empresas del sector público y privado</h2>
-		<h2>Este sevicio brinda soluciones para todas aquellas instituciones que no cuentan con un personal capacitado en determinada área o disciplina.</h2>
+		<h2>UNITEC ofrece a las instituciones públicas y privadas un servicio de asesoría por medio de su personal docente 
+    entre quienes se cuenta los profesionales más capacitados del país en las áreas donde nuestra Universidad ofrece 
+    diferentes tipos de carreras de Pregrado y Postgrado</h2>
 	</div>
 </div>
 

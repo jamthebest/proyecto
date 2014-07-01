@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>XXXXX</title>
+  <title>UNITEC</title>
   {{HTML::script('/assets/javascript/script.js');}}
   {{HTML::script('/assets/javascript/datetimepicker.js');}}
   {{HTML::script('js/jquery.min.js');}}
@@ -13,7 +13,7 @@
 <body style="margin-top: 50px">
   <header>
       <nav class="navbar navbar-fixed-top navbar-inverse" role="navigation">
-        <a class="navbar-brand" href="Inicio" style="margin-top:-1%;"> {{HTML::image('/images/logo.jpg');}} XXXXX</a>
+        <a class="navbar-brand" href="Inicio" style="margin-top:-1%;"> {{HTML::image('/images/logo.jpg');}} UNITEC</a>
         <ul class="nav navbar-nav navbar-left">
           <li class="dropdown">
             {{link_to('Inicio', 'Inicio', $attributes = array(), $secure = null)}}
