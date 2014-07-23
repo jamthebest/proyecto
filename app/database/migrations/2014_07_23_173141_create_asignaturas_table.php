@@ -14,7 +14,6 @@ class CreateAsignaturasTable extends Migration {
 	{
 		Schema::create('proyectodb.asignatura', function(Blueprint $table) {
 			$table->increments('id');
-			$table->integer('id');
 			$table->string('codigo');
 			$table->string('nombre');
 			$table->string('descripcion');

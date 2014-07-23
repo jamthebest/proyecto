@@ -14,7 +14,6 @@ class CreateInstitucionsTable extends Migration {
 	{
 		Schema::create('proyectodb.institucion', function(Blueprint $table) {
 			$table->increments('id');
-			$table->integer('id');
 			$table->string('institucion');
 			$table->timestamps();
 		});
