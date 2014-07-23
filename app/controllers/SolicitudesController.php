@@ -22,8 +22,13 @@ class SolicitudesController extends BaseController {
 	public function index()
 	{
 		$Solicitudes = $this->Solicitud->all();
+		$areas = Area::all()->lists('area', 'id');
+		$instituciones = Institucion::all()->lists('institucion', 'id');
+		$carreras = Carrera::all()->lists('nombre', 'id');
+		$clases = Asignatura::all()->lists('nombre', 'id');
+		//return $clases;
 
-		return View::make('Solicitudes.index', compact('Solicitudes'));
+		return View::make('Solicitudes.index', compact('Solicitudes', 'areas', 'instituciones', 'carreras', 'clases'));
 	}
 
 	/**

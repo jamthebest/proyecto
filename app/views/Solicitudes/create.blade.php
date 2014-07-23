@@ -7,7 +7,7 @@
 <div class="row">
     <div class="col-md-3"><h2>Solicitud <small></small></h2></div>
 </div>
-{{ Form::open(array('route' => 'Comentarios.store')) }}
+{{ Form::open(array('route' => 'Solicitudes.store')) }}
     <div class="form-group">
         <div class="col-md-10 col-md-offset-1">
             <h3>Tema:</h3>
