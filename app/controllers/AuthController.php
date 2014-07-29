@@ -13,14 +13,22 @@ class AuthController extends BaseController {
 		// Obtenemos la contraseña enviada
 		$password = Input::get('password');
 		
-		// Realizamos la autenticación
-		if (Auth::attempt(['user' => $user, 'password' => $password]))
-		{
-			// Aquí también pueden devolver una llamada a otro controlador o
-			// devolver una vista
-			//$user = Auth::user()->user;
-			return Redirect::to('/')->with('message', 'Bienvenido '. Auth::user()->user . '!');
+		$Usuario = Usuario::where('user', $user)->first();
+		if ($Usuario) {
+			if ($Usuario->activo == 1) {
+				// Realizamos la autenticación
+				if (Auth::attempt(['user' => $user, 'password' => $password]))
+				{
+					// Aquí también pueden devolver una llamada a otro controlador o
+					// devolver una vista
+					//$user = Auth::user()->user;
+					return Redirect::to('/')->with('message', 'Bienvenido '. Auth::user()->user . '!');
+				}
+			}else{
+				return Redirect::back()->with('message', 'El Usuario ha sido desactivado!');
+			}
 		}
+
 		// La autenticación ha fallado re-direccionamos
 		// a la página anterior con los datos enviados
 		// y con un mensaje de error

@@ -23,10 +23,10 @@ class UsuariosController extends BaseController {
 	public function index()
 	{
 		if (Auth::user()->tipo == 'Administrador') {
-			$Usuarios = $this->Usuario->all();
+			$Usuarios = $this->Usuario->paginate(10);
 			return View::make('Usuarios.index', compact('Usuarios'));
 		}
-		return Redirect::back()->withErrors('No tiene permisos para acceder a esta página!');
+		return Redirect::route('Inicio')->withErrors('No tiene permisos para acceder a esta página!');
 	}
 
 	/**
@@ -58,6 +58,7 @@ class UsuariosController extends BaseController {
 			$user['user'] = $input['user'];
 			$user['email'] = $input['email'];
 			$user['password'] = Hash::make($input['password']);
+			$user['tipo'] = $input['tipo'];
 			$user['activo'] = '1';
 			$user['created_at'] = $input['created_at'];
 			$user['updated_at'] = $input['updated_at'];
@@ -156,9 +157,20 @@ class UsuariosController extends BaseController {
 	 */
 	public function destroy($id)
 	{
-		$this->Usuario->find($id)->delete();
+		$user = $this->Usuario->find($id);
+		$user->activo = 0;
+		$user->save();
 
-		return Redirect::route('Usuarios.index');
+		return Redirect::back()->withErrors('Usuario Desactivado');
+	}
+
+	public function Habilitar($id)
+	{
+		$user = $this->Usuario->find($id);
+		$user->activo = 1;
+		$user->save();
+
+		return Redirect::back()->with('message', 'Usuario Activado');
 	}
 
 }

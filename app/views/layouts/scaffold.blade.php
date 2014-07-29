@@ -47,6 +47,9 @@
             <li class="dropdown">
               {{link_to_route('Comentarios.revisar', 'Ver Comentarios', $attributes = array(), $secure = null)}}
             </li>
+            <li class="dropdown">
+              {{link_to_route('Usuarios.index', 'Ver Usuarios', $attributes = array(), $secure = null)}}
+            </li>
           @endif
         </ul>
         @if (Auth::user())

@@ -71,6 +71,7 @@ Route::group(array('before' => 'auth'), function()
     Route::post('Solicitudes', array('as' => 'Solicitudes.guardar', 'uses' =>'SolicitudesController@guardar'));
     
 });
+Route::post('Usuarios/Habilitar/{id}', array('as' => 'Usuarios.Habilitar', 'uses' =>'UsuariosController@Habilitar'));
 Route::resource('Usuarios', 'UsuariosController');
 Route::post('Mensajes/Enviar/{id}', array('as' => 'Mensajes.guardar', 'uses' =>'MensajesController@guardar'));
 
