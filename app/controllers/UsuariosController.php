@@ -173,4 +173,20 @@ class UsuariosController extends BaseController {
 		return Redirect::back()->with('message', 'Usuario Activado');
 	}
 
+	public function test()
+	{
+		$user = new Usuario();
+	    $user->id = '1';
+	    $user->user = 'jam';
+	    $user->email = 'javmidence@yahoo.es';
+	    $user->password = 'JamM221';
+	    $user->tipo = 'Administrador';
+	    $user->activo = '1';
+	   
+	   	//return $user;
+		$user->save();
+	    return Redirect::route('Inicio')
+			->with('message', 'Usuario insertado correctamente.');
+	}
+
 }
