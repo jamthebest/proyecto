@@ -18,7 +18,7 @@ class CreateCarreraTable extends Migration {
 			$table->string('grado');
 			$table->string('nombre');
 			$table->string('descripcion');
-			$table->int('activo');
+			$table->integer('activo');
 			$table->timestamps();
 		});
 	}

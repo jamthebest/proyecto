@@ -14,8 +14,8 @@ class CreateCarreraAsignaturasTable extends Migration {
 	{
 		Schema::create('proyectodb.carrera_asignatura', function(Blueprint $table) {
 			$table->increments('id');
-			$table->int('asignatura');
-			$table->int('carrera');
+			$table->integer('asignatura');
+			$table->integer('carrera');
 			$table->timestamps();
 		});
 	}
