@@ -21,9 +21,9 @@ class InstitucionsController extends BaseController {
 	 */
 	public function index()
 	{
-		$Institucions = $this->Institucion->all();
+		$Instituciones = $this->Institucion->all();
 
-		return View::make('Institucions.index', compact('Institucions'));
+		return View::make('Institucions.index', compact('Instituciones'));
 	}
 
 	/**
@@ -50,10 +50,10 @@ class InstitucionsController extends BaseController {
 		{
 			$this->Institucion->create($input);
 
-			return Redirect::route('Institucions.index');
+			return Redirect::route('Instituciones.index');
 		}
 
-		return Redirect::route('Institucions.create')
+		return Redirect::route('Instituciones.create')
 			->withInput()
 			->withErrors($validation)
 			->with('message', 'There were validation errors.');
@@ -84,7 +84,7 @@ class InstitucionsController extends BaseController {
 
 		if (is_null($Institucion))
 		{
-			return Redirect::route('Institucions.index');
+			return Redirect::route('Instituciones.index');
 		}
 
 		return View::make('Institucions.edit', compact('Institucion'));
@@ -106,10 +106,10 @@ class InstitucionsController extends BaseController {
 			$Institucion = $this->Institucion->find($id);
 			$Institucion->update($input);
 
-			return Redirect::route('Institucions.show', $id);
+			return Redirect::route('Instituciones.show', $id);
 		}
 
-		return Redirect::route('Institucions.edit', $id)
+		return Redirect::route('Instituciones.edit', $id)
 			->withInput()
 			->withErrors($validation)
 			->with('message', 'There were validation errors.');
@@ -125,7 +125,7 @@ class InstitucionsController extends BaseController {
 	{
 		$this->Institucion->find($id)->delete();
 
-		return Redirect::route('Institucions.index');
+		return Redirect::route('Instituciones.index');
 	}
 
 }

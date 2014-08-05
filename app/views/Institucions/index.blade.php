@@ -2,11 +2,11 @@
 
 @section('main')
 
-<h1>All Institucions</h1>
+<h1>All Instituciones</h1>
 
-<p>{{ link_to_route('Institucions.create', 'Add new Institucion') }}</p>
+<p>{{ link_to_route('Instituciones.create', 'Add new Institucion') }}</p>
 
-@if ($Institucions->count())
+@if ($Instituciones->count())
 	<table class="table table-striped table-bordered">
 		<thead>
 			<tr>
@@ -16,13 +16,13 @@
 		</thead>
 
 		<tbody>
-			@foreach ($Institucions as $Institucion)
+			@foreach ($Instituciones as $Institucion)
 				<tr>
 					<td>{{{ $Institucion->id }}}</td>
 					<td>{{{ $Institucion->institucion }}}</td>
-                    <td>{{ link_to_route('Institucions.edit', 'Edit', array($Institucion->id), array('class' => 'btn btn-info')) }}</td>
+                    <td>{{ link_to_route('Instituciones.edit', 'Edit', array($Institucion->id), array('class' => 'btn btn-info')) }}</td>
                     <td>
-                        {{ Form::open(array('method' => 'DELETE', 'route' => array('Institucions.destroy', $Institucion->id))) }}
+                        {{ Form::open(array('method' => 'DELETE', 'route' => array('Instituciones.destroy', $Institucion->id))) }}
                             {{ Form::submit('Delete', array('class' => 'btn btn-danger')) }}
                         {{ Form::close() }}
                     </td>
@@ -31,7 +31,7 @@
 		</tbody>
 	</table>
 @else
-	There are no Institucions
+	There are no Instituciones
 @endif
 
 @stop

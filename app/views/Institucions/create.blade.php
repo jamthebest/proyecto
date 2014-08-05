@@ -4,7 +4,7 @@
 
 <h1>Create Institucion</h1>
 
-{{ Form::open(array('route' => 'Institucions.store')) }}
+{{ Form::open(array('route' => 'Instituciones.store')) }}
 	<ul>
         <li>
             {{ Form::label('id', 'Id:') }}

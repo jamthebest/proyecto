@@ -81,7 +81,7 @@ Route::resource('Asignaturas', 'AsignaturasController');
 
 Route::resource('Areas', 'AreasController');
 
-Route::resource('Instituciones', 'InstitucionesController');
+Route::resource('Instituciones', 'InstitucionsController');
 
 Route::resource('Rols', 'RolsController');
 

@@ -3,7 +3,7 @@
 @section('main')
 
 <h1>Edit Institucion</h1>
-{{ Form::model($Institucion, array('method' => 'PATCH', 'route' => array('Institucions.update', $Institucion->id))) }}
+{{ Form::model($Institucion, array('method' => 'PATCH', 'route' => array('Instituciones.update', $Institucion->id))) }}
 	<ul>
         <li>
             {{ Form::label('id', 'Id:') }}
@@ -17,7 +17,7 @@
 
 		<li>
 			{{ Form::submit('Update', array('class' => 'btn btn-info')) }}
-			{{ link_to_route('Institucions.show', 'Cancel', $Institucion->id, array('class' => 'btn')) }}
+			{{ link_to_route('Instituciones.show', 'Cancel', $Institucion->id, array('class' => 'btn')) }}
 		</li>
 	</ul>
 {{ Form::close() }}
