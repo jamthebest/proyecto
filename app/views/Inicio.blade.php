@@ -4,7 +4,6 @@
 
 <div class="row">
 	<div class="col-md-3"><h2>Inicio <small></small></h2></div>
-  @if(!Usuario::where('tipo', 'Administrador')->get())
     <div class="col-md-3" style="margin-top:3%; margin-bottom:2%">
     {{ Form::open(array('route' => 'test', 'class' => "form-horizontal" , 'role' => 'form')) }}
       <div class="col-md-2">
@@ -12,7 +11,6 @@
         </div>
     {{ Form::close() }}
     </div>
-  @endif
 </div>
 
 @if ($errors->any())
