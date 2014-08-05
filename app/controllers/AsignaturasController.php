@@ -21,7 +21,7 @@ class AsignaturasController extends BaseController {
 	 */
 	public function index()
 	{
-		$Asignaturas = $this->Asignatura->all();
+		$Asignaturas = $this->Asignatura->paginate(10);
 
 		return View::make('Asignaturas.index', compact('Asignaturas'));
 	}
@@ -123,9 +123,20 @@ class AsignaturasController extends BaseController {
 	 */
 	public function destroy($id)
 	{
-		$this->Asignatura->find($id)->delete();
+		$Asignatura = $this->Asignatura->find($id);
+		$Asignatura->activo = 0;
+		$Asignatura->save();
 
-		return Redirect::route('Asignaturas.index');
+		return Redirect::route('Asignaturas.index')->with('message', 'Asignatura Desactivada!');
+	}
+
+	public function Activar($id)
+	{
+		$Asignatura = $this->Asignatura->find($id);
+		$Asignatura->activo = 1;
+		$Asignatura->save();
+
+		return Redirect::route('Asignaturas.index')->with('message', 'Asignatura Activada!');
 	}
 
 }

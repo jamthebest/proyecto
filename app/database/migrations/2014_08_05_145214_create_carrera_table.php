@@ -12,7 +12,7 @@ class CreateCarreraTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('proyectodb.carrera', function(Blueprint $table) {
+		Schema::create('proyectodb.carreras', function(Blueprint $table) {
 			$table->increments('id');
 			$table->string('codigo');
 			$table->string('grado');

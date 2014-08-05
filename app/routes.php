@@ -77,6 +77,7 @@ Route::post('Mensajes/Enviar/{id}', array('as' => 'Mensajes.guardar', 'uses' =>'
 
 Route::resource('Datos', 'DatosController');
 
+Route::post('Asignaturas/Activar/{id}', array('as' => 'Asignaturas.activar', 'uses' =>'AsignaturasController@Activar'));
 Route::resource('Asignaturas', 'AsignaturasController');
 
 Route::resource('Areas', 'AreasController');
