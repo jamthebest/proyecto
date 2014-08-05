@@ -31,7 +31,7 @@ class CreateMensajeTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('mensaje');
+		Schema::drop('proyectodb.mensaje');
 	}
 
 }

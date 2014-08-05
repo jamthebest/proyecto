@@ -27,7 +27,7 @@ class CreateAreasTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('Areas');
+		Schema::drop('proyectodb.area');
 	}
 
 }

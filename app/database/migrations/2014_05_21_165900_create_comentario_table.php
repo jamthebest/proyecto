@@ -29,7 +29,7 @@ class CreateComentarioTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('comentario');
+		Schema::drop('proyectodb.comentario');
 	}
 
 }

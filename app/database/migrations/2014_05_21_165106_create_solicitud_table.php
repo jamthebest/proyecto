@@ -16,6 +16,10 @@ class CreateSolicitudTable extends Migration {
 	       $table->create();
 	       $table->increments('id');
 	       $table->integer('user');
+	       $table->integer('area_geografica');
+	       $table->integer('tipo_institucion');
+	       $table->integer('area_especializacion');
+	       $table->integer('area_subespecializacion');
 	       $table->string('tema',128);
 	       $table->string('descripcion',256);
 	       $table->integer('procesada');
@@ -31,7 +35,7 @@ class CreateSolicitudTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('solicitud');
+		Schema::drop('proyectodb.solicitud');
 	}
 
 }

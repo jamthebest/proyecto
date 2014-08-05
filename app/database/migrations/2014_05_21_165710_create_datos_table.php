@@ -31,7 +31,7 @@ class CreateDatosTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('datos');
+		Schema::drop('proyectodb.datos');
 	}
 
 }

@@ -21,7 +21,7 @@ class CarrerasController extends BaseController {
 	 */
 	public function index()
 	{
-		$Carreras = $this->Carrera->all();
+		$Carreras = $this->Carrera->paginate(10);
 
 		return View::make('Carreras.index', compact('Carreras'));
 	}
@@ -44,6 +44,7 @@ class CarrerasController extends BaseController {
 	public function store()
 	{
 		$input = Input::all();
+		//return $input;
 		$validation = Validator::make($input, Carrera::$rules);
 
 		if ($validation->passes())
@@ -123,9 +124,20 @@ class CarrerasController extends BaseController {
 	 */
 	public function destroy($id)
 	{
-		$this->Carrera->find($id)->delete();
+		$Carrera = $this->Carrera->find($id);
+		$Carrera->activo = 0;
+		$Carrera->save();
 
-		return Redirect::route('Carreras.index');
+		return Redirect::route('Carreras.index')->with('message', 'Carrera Desactivada!');
+	}
+
+	public function Activar($id)
+	{
+		$Carrera = $this->Carrera->find($id);
+		$Carrera->activo = 1;
+		$Carrera->save();
+
+		return Redirect::route('Carreras.index')->with('message', 'Carrera Activada!');
 	}
 
 

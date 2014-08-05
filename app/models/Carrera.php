@@ -8,8 +8,9 @@ class Carrera extends Eloquent {
 	public static $rules = array(
 		'id' => '',
 		'codigo' => 'required',
+		'grado' => '',
 		'nombre' => 'required',
-		'descripcion' => 'required',
+		'descripcion' => '',
 		'activo' => ''
 	);
 }

@@ -77,8 +77,15 @@ Route::post('Mensajes/Enviar/{id}', array('as' => 'Mensajes.guardar', 'uses' =>'
 
 Route::resource('Datos', 'DatosController');
 
+Route::resource('Asignaturas', 'AsignaturasController');
+
+Route::resource('Areas', 'AreasController');
+
+Route::resource('Instituciones', 'InstitucionesController');
+
 Route::resource('Rols', 'RolsController');
 
+Route::post('Carreras/Activar/{id}', array('as' => 'Carreras.activar', 'uses' =>'CarrerasController@Activar'));
 Route::resource('Carreras', 'CarrerasController');
 
 Route::resource('Mensajes', 'MensajesController');

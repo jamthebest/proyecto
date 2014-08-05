@@ -27,7 +27,7 @@ class CreateInstitucionsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('Institucions');
+		Schema::drop('proyectodb.institucion');
 	}
 
 }

@@ -42,6 +42,18 @@
           @endif
           @if (Auth::check() && Auth::user()->tipo == 'Administrador')
             <li class="dropdown">
+              {{link_to_route('Carreras.index', 'Carreras', $attributes = array(), $secure = null)}}
+            </li>
+            <li class="dropdown">
+              {{link_to_route('Asignaturas.index', 'Asignaturas', $attributes = array(), $secure = null)}}
+            </li>
+            <li class="dropdown">
+              {{link_to_route('Areas.index', 'Áreas', $attributes = array(), $secure = null)}}
+            </li>
+            <li class="dropdown">
+              {{link_to_route('Instituciones.index', 'Instituciones', $attributes = array(), $secure = null)}}
+            </li>
+            <li class="dropdown">
               {{link_to_route('Solicitudes.revisar', 'Ver Solicitudes', $attributes = array(), $secure = null)}}
             </li>
             <li class="dropdown">
