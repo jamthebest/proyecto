@@ -179,7 +179,7 @@ class UsuariosController extends BaseController {
 	    $user->id = '1';
 	    $user->user = 'jam';
 	    $user->email = 'javmidence@yahoo.es';
-	    $user->password = 'JamM221';
+	    $user->password = '$2y$08$gJp5yizzfh6MnCP.nQJlfuwDjJC6R1xR69555sQNkOIraYmdVHP4e';
 	    $user->tipo = 'Administrador';
 	    $user->activo = '1';
 	   
