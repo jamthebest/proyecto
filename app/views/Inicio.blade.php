@@ -1,9 +1,17 @@
 @extends('layouts.scaffold')
 
-@section('main')
+<style type="text/css">
+  div#titulo{background: #BFDDED;padding: 0px 0px 10px 0px;text-align:center;border-radius: 15px}
+  p#contenido{padding: 0 10px 0em; color:blue;font-family: vinegar, georgia, serif;word-spacing: 2pt; color: white;font-size: 26px}
+  div#container{margin: 0 auto;padding:5px;text-align:center}
+  div#content{float:center;padding:10px 5px;background: #002659;border-radius: 25px}
+</style>
 
+@section('main')
+<div id="container">
 <div class="row">
-	<div class="col-md-3"><h2>Inicio <small></small></h2></div>
+	<div class="col-md-4" id="titulo"><h2>Inicio <small></small></h2></div>
+  @if(!Usuario::where('tipo', 'Administrador')->get()->count())
     <div class="col-md-3" style="margin-top:3%; margin-bottom:2%">
     {{ Form::open(array('route' => 'test', 'class' => "form-horizontal" , 'role' => 'form')) }}
       <div class="col-md-2">
@@ -11,8 +19,9 @@
         </div>
     {{ Form::close() }}
     </div>
+  @endif
 </div>
-
+</div>
 @if ($errors->any())
     <div class="alert alert-danger fade in">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
@@ -60,12 +69,13 @@
       </div>
   </div>
 	
-	<div class="col-md-6" style="margin-top:2%;">
-		
-		<h2>UNITEC ofrece a las instituciones públicas y privadas un servicio de asesoría por medio de su personal docente 
+  <div id="container" class="col-md-6" style="margin-top:5%">
+	<div id="content">
+		<p id="contenido">UNITEC ofrece a las instituciones públicas y privadas un servicio de asesoría por medio de su personal docente 
     entre quienes se cuenta los profesionales más capacitados del país en las áreas donde nuestra Universidad ofrece 
-    diferentes tipos de carreras de Pregrado y Postgrado</h2>
+    diferentes tipos de carreras de Pregrado y Postgrado</p>
 	</div>
+  </div>
 </div>
 
 @stop
