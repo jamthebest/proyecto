@@ -21,7 +21,7 @@ class AreasController extends BaseController {
 	 */
 	public function index()
 	{
-		$Areas = $this->Area->all();
+		$Areas = $this->Area->paginate(10);
 
 		return View::make('Areas.index', compact('Areas'));
 	}
@@ -33,7 +33,17 @@ class AreasController extends BaseController {
 	 */
 	public function create()
 	{
-		return View::make('Areas.create');
+		$cantidad = $this->Area->all()->count();
+		$ids = array();
+		for ($i=1; $i <= $cantidad; $i++) { 
+			$x = $this->Area->find($i);
+			if (!$x) {
+				array_push($ids, $i);
+			}
+		}
+		$sig = $this->Area->orderBy('id', 'DESC')->first()->id + 1;
+		array_push($ids, $sig);
+		return View::make('Areas.create', compact('ids'));
 	}
 
 	/**
@@ -103,10 +113,22 @@ class AreasController extends BaseController {
 
 		if ($validation->passes())
 		{
-			$Area = $this->Area->find($id);
-			$Area->update($input);
+			if ($id == $input['id']) {
+				$Area = $this->Area->find($id);
+				$Area->update($input);
+			}else{
+				$x = $this->Area->find($input['id']);
+				if ($x) {
+					return Redirect::route('Areas.edit', $id)
+						->withInput()
+						->withErrors('El ID ingresado ya está utilizado!');
+				}else{
+					$this->Area->find($id)->delete();
+					$this->Area->create($input);
+				}
+			}
 
-			return Redirect::route('Areas.show', $id);
+			return Redirect::route('Areas.index');
 		}
 
 		return Redirect::route('Areas.edit', $id)
@@ -123,9 +145,20 @@ class AreasController extends BaseController {
 	 */
 	public function destroy($id)
 	{
-		$this->Area->find($id)->delete();
+		$Area = $this->Area->find($id);
+		$Area->activo = 0;
+		$Area->save();
 
-		return Redirect::route('Areas.index');
+		return Redirect::route('Areas.index')->with('message', 'Área Desactivada!');
+	}
+
+	public function Activar($id)
+	{
+		$Area = $this->Area->find($id);
+		$Area->activo = 1;
+		$Area->save();
+
+		return Redirect::route('Areas.index')->with('message', 'Área Activada!');
 	}
 
 }

@@ -1,16 +1,14 @@
 @extends('layouts.scaffold')
 
 <style type="text/css">
-  div#titulo{background: #BFDDED;padding: 0px 0px 10px 0px;text-align:center;border-radius: 15px}
   p#contenido{padding: 0 10px 0em; color:blue;font-family: vinegar, georgia, serif;word-spacing: 2pt; color: white;font-size: 26px}
-  div#container{margin: 0 auto;padding:5px;text-align:center}
   div#content{float:center;padding:10px 5px;background: #002659;border-radius: 25px}
 </style>
 
 @section('main')
 <div id="container">
 <div class="row">
-	<div class="col-md-4" id="titulo"><h2>Inicio <small></small></h2></div>
+	<div class="col-md-4" id="titulo"><h2><span class="glyphicon glyphicon-home"></span> Inicio <small></small></h2></div>
   @if(!Usuario::where('tipo', 'Administrador')->get()->count())
     <div class="col-md-3" style="margin-top:3%; margin-bottom:2%">
     {{ Form::open(array('route' => 'test', 'class' => "form-horizontal" , 'role' => 'form')) }}
@@ -55,9 +53,9 @@
         <!-- Carousel items -->
         <div class="carousel-inner">
           <div class="active item"><img  src="images/24.jpg" alt="banner1" /></div>
-          <div class="item"><img  src="images/8.jpg" alt="banner2" /></div>
-          <div class="item"><img  src="images/22.jpg" alt="banner3" /></div>
-          <div class="item"><img  src="images/21.jpg" alt="banner4" /></div>
+          <div class="item" style="padding:6% 0%;"><img  src="images/8.jpg" alt="banner2" /></div>
+          <div class="item" style="padding:6% 0%;"><img  src="images/22.jpg" alt="banner3" /></div>
+          <div class="item" style="padding:6% 0%;"><img  src="images/21.jpg" alt="banner4" /></div>
         </div>
         <!-- Carousel nav -->
         <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">

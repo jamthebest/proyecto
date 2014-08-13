@@ -21,7 +21,7 @@ class InstitucionsController extends BaseController {
 	 */
 	public function index()
 	{
-		$Instituciones = $this->Institucion->all();
+		$Instituciones = $this->Institucion->paginate(10);
 
 		return View::make('Institucions.index', compact('Instituciones'));
 	}
@@ -33,7 +33,17 @@ class InstitucionsController extends BaseController {
 	 */
 	public function create()
 	{
-		return View::make('Institucions.create');
+		$cantidad = $this->Institucion->all()->count();
+		$ids = array();
+		for ($i=1; $i <= $cantidad; $i++) { 
+			$x = $this->Institucion->find($i);
+			if (!$x) {
+				array_push($ids, $i);
+			}
+		}
+		$sig = $this->Institucion->orderBy('id', 'DESC')->first()->id + 1;
+		array_push($ids, $sig);
+		return View::make('Institucions.create', compact('ids'));
 	}
 
 	/**
@@ -103,10 +113,22 @@ class InstitucionsController extends BaseController {
 
 		if ($validation->passes())
 		{
-			$Institucion = $this->Institucion->find($id);
-			$Institucion->update($input);
+			if ($id == $input['id']) {
+				$Institucion = $this->Institucion->find($id);
+				$Institucion->update($input);
+			}else{
+				$x = $this->Institucion->find($input['id']);
+				if ($x) {
+					return Redirect::route('Instituciones.edit', $id)
+						->withInput()
+						->withErrors('El ID ingresado ya está utilizado!');
+				}else{
+					$this->Institucion->find($id)->delete();
+					$this->Institucion->create($input);
+				}
+			}
 
-			return Redirect::route('Instituciones.show', $id);
+			return Redirect::route('Instituciones.index');
 		}
 
 		return Redirect::route('Instituciones.edit', $id)
@@ -123,9 +145,20 @@ class InstitucionsController extends BaseController {
 	 */
 	public function destroy($id)
 	{
-		$this->Institucion->find($id)->delete();
+		$Institucion = $this->Institucion->find($id);
+		$Institucion->activo = 0;
+		$Institucion->save();
 
-		return Redirect::route('Instituciones.index');
+		return Redirect::route('Instituciones.index')->with('message', 'Institución Desactivada!');
+	}
+
+	public function Activar($id)
+	{
+		$Institucion = $this->Institucion->find($id);
+		$Institucion->activo = 1;
+		$Institucion->save();
+
+		return Redirect::route('Instituciones.index')->with('message', 'Institución Activada!');
 	}
 
 }

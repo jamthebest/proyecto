@@ -2,8 +2,10 @@
 
 @section('main')
 
-<div class="row">
-	<div class="col-md-3"><h2>Categorías <small></small></h2></div>
+<div id="container">
+  <div class="row">
+    <div class="col-md-4" id="titulo"><h2><span class="glyphicon glyphicon-tags"></span> Categorías <small></small> </h2></div>
+  </div>
 </div>
 
 @if ($errors->any())

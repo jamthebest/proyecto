@@ -6,7 +6,7 @@ class Area extends Eloquent {
 	protected $table = 'area';
 
 	public static $rules = array(
-		'id' => '',
+		'id' => 'required',
 		'area' => 'required'
 	);
 }

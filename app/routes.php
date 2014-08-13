@@ -69,8 +69,10 @@ Route::resource('Datos', 'DatosController');
 Route::post('Asignaturas/Activar/{id}', array('as' => 'Asignaturas.activar', 'uses' =>'AsignaturasController@Activar'));
 Route::resource('Asignaturas', 'AsignaturasController');
 
+Route::post('Areas/Activar/{id}', array('as' => 'Areas.activar', 'uses' =>'AreasController@Activar'));
 Route::resource('Areas', 'AreasController');
 
+Route::post('Instituciones/Activar/{id}', array('as' => 'Instituciones.activar', 'uses' =>'InstitucionsController@Activar'));
 Route::resource('Instituciones', 'InstitucionsController');
 
 Route::resource('Rols', 'RolsController');

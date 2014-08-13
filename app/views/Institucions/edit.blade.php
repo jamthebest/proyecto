@@ -2,30 +2,61 @@
 
 @section('main')
 
-<h1>Edit Institucion</h1>
-{{ Form::model($Institucion, array('method' => 'PATCH', 'route' => array('Instituciones.update', $Institucion->id))) }}
-	<ul>
-        <li>
-            {{ Form::label('id', 'Id:') }}
-            {{ Form::input('number', 'id') }}
-        </li>
-
-        <li>
-            {{ Form::label('institucion', 'Institucion:') }}
-            {{ Form::text('institucion') }}
-        </li>
-
-		<li>
-			{{ Form::submit('Update', array('class' => 'btn btn-info')) }}
-			{{ link_to_route('Instituciones.show', 'Cancel', $Institucion->id, array('class' => 'btn')) }}
-		</li>
-	</ul>
-{{ Form::close() }}
+<div id="container">
+  <div class="row">
+    <div class="col-md-6" id="titulo"><h2><span class="glyphicon glyphicon-pencil"></span> Instituciones <small> &gt; Editar Institución </small> </h2></div>
+  </div>
+  <div class="page-header clearfix" style="margin-top:-2%">
+      <div class="pull-right">
+      <a href="{{{ URL::previous() }}}" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-arrow-left"></span> Regresar</a>
+    </div>
+  </div>
+</div>
 
 @if ($errors->any())
-	<ul>
-		{{ implode('', $errors->all('<li class="error">:message</li>')) }}
-	</ul>
+  <div class="alert alert-danger fade in">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+    @if($errors->count() > 1)
+      <h4>Oh no! Se encontraron errores!</h4>
+    @else
+      <h4>Oh no! Se encontró un error!</h4>
+    @endif
+    <ul>
+      {{ implode('', $errors->all('<li class="error">:message</li>')) }}
+    </ul>  
+  </div>
+@else
+  @if (Session::has('message'))
+    <div class="alert alert-success fade in">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+      {{ Session::get('message') }}
+    </div>
+  @endif
 @endif
+
+{{ Form::model($Institucion, array('method' => 'PATCH', 'route' => array('Instituciones.update', $Institucion->id), 'class' => "form-horizontal" , 'role' => 'form')) }}
+	<div class="form-group">
+    {{ Form::label('id', 'ID: *', array('class' => 'col-md-3 control-label')) }}
+    <div class="col-md-6">
+      {{ Form::text('id', null, array('class' => 'form-control', 'id' => 'id', 'placeholder'=>'Identificador único', 'autofocus')) }}
+    </div>
+  </div>
+  <div class="form-group">
+    {{ Form::label('institucion', 'Nombre de la Institución: *', array('class' => 'col-md-3 control-label')) }}
+    <div class="col-md-6">
+      {{ Form::text('institucion', null, array('class' => 'form-control', 'id' => 'institucion', 'placeholder'=>'Nombre a mostrar', 'autofocus')) }}
+    </div>
+  </div>
+  <div class="form-group" style="margin-top:5%;">
+    <div class="col-md-2 col-md-offset-4">
+      {{ Form::submit('Aceptar', array('class' => 'btn btn-primary')) }}
+    </div>
+    <div class="col-md-2">
+      <a type="button" href="{{ URL::route('Instituciones.index') }}" class="btn btn-danger">
+        Cancelar
+      </a>
+    </div>
+  </div>
+{{ Form::close() }}
 
 @stop

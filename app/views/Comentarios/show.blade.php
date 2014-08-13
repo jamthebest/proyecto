@@ -2,8 +2,15 @@
 
 @section('main')
 
-<div class="row">
-	<div class="col-md-10"><h2><span class="glyphicon glyphicon-bullhorn"></span> Comentario <small></small></h2></div>
+<div id="container">
+  <div class="row">
+    <div class="col-md-6" id="titulo"><h2><span class="glyphicon glyphicon-search"></span> Comentario </h2></div>
+  </div>
+  <div class="page-header clearfix" style="margin-top:-2%">
+      <div class="pull-right">
+      <a href="{{{ URL::previous() }}}" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-arrow-left"></span> Regresar</a>
+    </div>
+  </div>
 </div>
 
 @if ($errors->any())
@@ -26,10 +33,6 @@
 		</div>
 	@endif
 @endif
-
-<div class="pull-right">
-	<p>{{ link_to('Comentarios/Revisar', ' Regresar', array('class' => 'btn btn-success glyphicon glyphicon-chevron-left')) }}</p>
-</div>
 
 <div class="form-group col-md-12" style="margin-top:5%">
 	<div class="col-md-2 control-label">
@@ -76,7 +79,7 @@
 <div class="form-group text-center col-md-12">
 	<h1><strong>Responder</strong></h1>
 </div>
-	{{ Form::open(array('method' => 'POST', 'route' => array('Mensajes.guardar', $Comentario->id))) }}
+	{{ Form::open(array('method' => 'POST', 'route' => array('Mensajes.store'))) }}
 		<div class="form-group">
 			<div class="col-md-10 col-md-offset-1">
 				<h3>Mensaje:</h3>
@@ -87,7 +90,7 @@
     	<br><br>
     	{{ Form::hidden('user', Auth::user()->id) }}
     	{{ Form::hidden('destinatario', $Comentario->user) }}
-    	{{ Form::hidden('asunto', 'Respuesta Comentario: ' . $Comentario->tema) }}
+    	{{ Form::hidden('asunto', 'Respuesta Comentario') }}
 			{{ Form::hidden('created_at', date('Y-m-d H:i:s')) }}
 			{{ Form::hidden('updated_at', date('Y-m-d H:i:s')) }}
     	{{ Form::submit('Enviar', array('class' => 'btn btn-success btn-lg')) }}

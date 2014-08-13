@@ -6,7 +6,7 @@ class Institucion extends Eloquent {
 	protected $table = 'institucion';
 
 	public static $rules = array(
-		'id' => '',
+		'id' => 'required',
 		'institucion' => 'required'
 	);
 }

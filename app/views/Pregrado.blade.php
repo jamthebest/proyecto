@@ -2,8 +2,10 @@
 
 @section('main')
 
-<div class="row">
-	<div class="col-md-5"><a href="Categorias"><h2>Categorías ></a> <small>Pregrado </small></h2></div>
+<div id="container">
+  <div class="row">
+    <div class="col-md-5" id="titulo"><h2><span class="glyphicon glyphicon-tags"></span><a href="Categorias"> Categorías </a><small> > Pregrado</small> </h2></div>
+  </div>
 </div>
 
 <div class="row" >

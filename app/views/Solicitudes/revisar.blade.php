@@ -2,13 +2,17 @@
 
 @section('main')
 
-<h1>Solicitudes</h1>
+<div id="container">
+	<div class="row">
+		<div class="col-md-4" id="titulo"><h2><span class="glyphicon glyphicon-list-alt"></span> Solicitudes </h2></div>
+	</div>
+</div>
 
 @if ($Solicitudes->count())
 	<table class="table table-striped table-bordered">
 		<thead>
 			<tr>
-				<th>Id</th>
+				<th>ID</th>
 				<th>Usuario</th>
 				<th>Tema</th>
 				<th>Preocesada</th>

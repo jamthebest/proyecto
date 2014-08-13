@@ -2,8 +2,15 @@
 
 @section('main')
 
-<div class="row">
-	<div class="col-md-10"><h2><span class="glyphicon glyphicon-bullhorn"></span> Mensaje <small></small></h2></div>
+<div id="container">
+  <div class="row">
+    <div class="col-md-6" id="titulo"><h2><span class="glyphicon glyphicon-search"></span> Mensaje </h2></div>
+  </div>
+  <div class="page-header clearfix" style="margin-top:-2%">
+      <div class="pull-right">
+      <a href="{{{ URL::previous() }}}" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-arrow-left"></span> Regresar</a>
+    </div>
+  </div>
 </div>
 
 @if ($errors->any())
@@ -26,10 +33,6 @@
 		</div>
 	@endif
 @endif
-
-<div class="pull-right">
-	<p>{{ link_to('Mensajes', ' Regresar', array('class' => 'btn btn-success glyphicon glyphicon-chevron-left')) }}</p>
-</div>
 
 <div class="form-group col-md-12">
 	<div class="col-md-2 control-label">
@@ -87,7 +90,7 @@
     	<br><br>
     	{{ Form::hidden('user', Auth::user()->id) }}
     	{{ Form::hidden('destinatario', $Mensaje->user) }}
-    	{{ Form::hidden('asunto', 'Respuesta Mensaje: ' . $Mensaje->tema) }}
+    	{{ Form::hidden('asunto', 'Respuesta Mensaje') }}
 			{{ Form::hidden('created_at', date('Y-m-d H:i:s')) }}
 			{{ Form::hidden('updated_at', date('Y-m-d H:i:s')) }}
     	{{ Form::submit('Enviar', array('class' => 'btn btn-success btn-lg')) }}

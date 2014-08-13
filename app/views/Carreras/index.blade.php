@@ -2,9 +2,13 @@
 
 @section('main')
 
-<h2 class="sub-header"><span class="glyphicon glyphicon-cog"></span> Carreras </h2>
+<div id="container">
+	<div class="row">
+		<div class="col-md-4" id="titulo"><h2><span class="glyphicon glyphicon-briefcase"></span> Carreras </h2></div>
+	</div>
+</div>
 
-<div class="btn-agregar">
+<div class="btn-agregar col-md-12">
 	<a type="button" href="{{ URL::route('Carreras.create') }}" class="btn btn-primary">
 	  <span class="glyphicon glyphicon-file"></span> Nueva Carrera
 	</a>

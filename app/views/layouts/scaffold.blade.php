@@ -9,6 +9,10 @@
   {{HTML::script('js/bootstrap.min.js');}}
   {{HTML::style('/bootstrap/css/bootstrap.min.css');}}
   {{HTML::style('/assets/css/general.css');}}
+  <style type="text/css">
+    div#titulo{background: #BFDDED;padding: 0px 0px 10px 0px;text-align:center;border-radius: 15px}
+    div#container{margin: 0 auto;padding:5px;text-align:center}
+  </style>
 </head>
 <body style="margin-top: 50px">
   <header>

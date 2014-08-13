@@ -2,13 +2,26 @@
 
 @section('main')
 
-<div class="row" style="margin-top:3%; margin-bottom:2%">
-	<div class="col-md-3"><h2><span class="glyphicon glyphicon-user"></span> Usuarios <small></small></h2></div>
+<div id="container">
+	<div class="row">
+		<div class="col-md-4" id="titulo"><h2><span class="glyphicon glyphicon-user"></span> Usuarios </h2></div>
+	</div>
+</div>
+
+<div class="btn-agregar">
+	<a type="button" href="{{ URL::route('Usuarios.create') }}" class="btn btn-primary">
+	  <span class="glyphicon glyphicon-file"></span> Nuevo Usuario
+	</a>
 </div>
 
 @if ($errors->any())
 	<div class="alert alert-danger fade in">
-	  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+	    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+	    @if($errors->count() > 1)
+		  	<h4>Oh no! Se encontraron errores!</h4>
+		@else
+		   	<h4>Oh no! Se encontró un error!</h4>
+		@endif
 		<ul>
 		    {{ implode('', $errors->all('<li class="error">:message</li>')) }}
 		</ul>

@@ -2,13 +2,17 @@
 
 @section('main')
 
-<h1>Comentarios</h1>
+<div id="container">
+	<div class="row">
+		<div class="col-md-4" id="titulo"><h2><span class="glyphicon glyphicon-comment"></span> Comentarios </h2></div>
+	</div>
+</div>
 
 @if ($Comentarios->count())
 	<table class="table table-striped table-bordered">
 		<thead>
 			<tr>
-				<th>Id</th>
+				<th>ID</th>
 				<th>Usuario</th>
 				<th>Leido</th>
 				<th>Fecha</th>

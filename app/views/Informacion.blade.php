@@ -4,8 +4,7 @@
   h1,h2{margin: 0;padding: 0 10px;font-weight:normal}
   h1{font-size: 250%;color: #FFF;letter-spacing: 1px}
   h2{font-size: 200%;line-height:1;color:#002455 }
-  div#container{margin: 0 auto;padding:5px;text-align:center;background:#FFF}
-  div#titulo{background: #BFDDED;padding: 0px 0px 10px 0px;text-align:center;border-radius: 15px}
+  div#container{background:#FFF}
   div#content{float:left;width:480px;padding:6px 0;margin:5px 0;background: #A6CE39; margin-bottom:5%; border-radius: 15px}
   div#nav{float:right;width:400px;padding:10px 0;margin:5px 0;background: #E7E7E8; border-radius: 15px}
   div#footer{clear:both;width:450px;background: #C4E786;padding:5px 0;text-align:center}
@@ -16,7 +15,7 @@
 @section('main')
 <div id="container">
 <div class="row">
-	<div class="col-md-4" id="titulo"><h2>Información <small></small></h2></div>
+	<div class="col-md-4" id="titulo"><h2><span class="glyphicon glyphicon-info-sign"></span> Información <small></small></h2></div>
 </div>
 
 <div class="row" style="margin-top:1%;">

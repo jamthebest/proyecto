@@ -2,7 +2,11 @@
 
 @section('main')
 
-<h2 class="sub-header"><span class="glyphicon glyphicon-cog"></span> Asignaturas </h2>
+<div id="container">
+	<div class="row">
+		<div class="col-md-4" id="titulo"><h2><span class="glyphicon glyphicon-book"></span> Asignaturas </h2></div>
+	</div>
+</div>
 
 <div class="btn-agregar">
 	<a type="button" href="{{ URL::route('Asignaturas.create') }}" class="btn btn-primary">
@@ -35,7 +39,7 @@
 	<table class="table table-striped table-bordered">
 		<thead>
 			<tr>
-				<th>Id</th>
+				<th>ID</th>
 				<th>Codigo</th>
 				<th>Nombre</th>
 				<th>Descripcion</th>
@@ -51,18 +55,18 @@
 					<td>{{{ $Asignatura->nombre }}}</td>
 					<td>{{{ $Asignatura->descripcion }}}</td>
 					<td>{{{ $Asignatura->activo == 1 ? 'Activo' : 'Inactivo' }}}</td>
-                    <td>{{ link_to_route('Asignaturas.edit', 'Editar', array($Asignatura->id), array('class' => 'btn btn-info')) }}</td>
-                    <td>
-                    	@if($Asignatura->activo == 1)
-	                        {{ Form::open(array('method' => 'DELETE', 'route' => array('Asignaturas.destroy', $Asignatura->id))) }}
-	                            {{ Form::submit('Desactivar', array('class' => 'btn btn-danger')) }}
-	                        {{ Form::close() }}
-	                    @else
-	                    	{{ Form::open(array('method' => 'POST', 'route' => array('Asignaturas.activar', $Asignatura->id))) }}
-	                            {{ Form::submit('Activar', array('class' => 'btn btn-success')) }}
-	                        {{ Form::close() }}
-	                    @endif
-                    </td>
+            <td>{{ link_to_route('Asignaturas.edit', 'Editar', array($Asignatura->id), array('class' => 'btn btn-info')) }}</td>
+            <td>
+            	@if($Asignatura->activo == 1)
+                  {{ Form::open(array('method' => 'DELETE', 'route' => array('Asignaturas.destroy', $Asignatura->id))) }}
+                      {{ Form::submit('Desactivar', array('class' => 'btn btn-danger')) }}
+                  {{ Form::close() }}
+              @else
+              	{{ Form::open(array('method' => 'POST', 'route' => array('Asignaturas.activar', $Asignatura->id))) }}
+                      {{ Form::submit('Activar', array('class' => 'btn btn-success')) }}
+                  {{ Form::close() }}
+              @endif
+            </td>
 				</tr>
 			@endforeach
 		</tbody>

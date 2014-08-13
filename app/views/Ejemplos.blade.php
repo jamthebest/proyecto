@@ -6,9 +6,11 @@
 
 @section('main')
 	
+<div id="container">
 	<div class="row">
-    	<div class="col-md-5"><h2>Ejemplos de Casos <small></small></h2></div>
+	  <div class="col-md-5" id="titulo"><h2><span class="glyphicon glyphicon-bell"></span> Ejemplos de Casos <small></small> </h2></div>
 	</div>
+</div>
 
 	<div>
 		<h3><br>Unitecc cuenta con profesionales especializados en temas específicos según su orientación. 

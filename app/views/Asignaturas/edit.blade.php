@@ -2,11 +2,15 @@
 
 @section('main')
 
-<div class="page-header clearfix">
-    <h3 class="pull-left">Pregunta <small> &gt; Editar Carrera</small></h3>
-    <div class="pull-right">
-        <a href="{{{ URL::previous() }}}" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-arrow-left"></span> Regresar</a>
+<div id="container">
+  <div class="row">
+    <div class="col-md-6" id="titulo"><h2><span class="glyphicon glyphicon-pencil"></span> Asignaturas <small> &gt; Editar Asignatura </small> </h2></div>
+  </div>
+  <div class="page-header clearfix" style="margin-top:-2%">
+      <div class="pull-right">
+      <a href="{{{ URL::previous() }}}" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-arrow-left"></span> Regresar</a>
     </div>
+  </div>
 </div>
 
 @if ($errors->any())

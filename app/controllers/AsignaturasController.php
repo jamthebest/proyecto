@@ -106,7 +106,7 @@ class AsignaturasController extends BaseController {
 			$Asignatura = $this->Asignatura->find($id);
 			$Asignatura->update($input);
 
-			return Redirect::route('Asignaturas.show', $id);
+			return Redirect::route('Asignaturas.index');
 		}
 
 		return Redirect::route('Asignaturas.edit', $id)

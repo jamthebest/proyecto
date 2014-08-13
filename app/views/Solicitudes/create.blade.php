@@ -2,11 +2,17 @@
 
 @section('main')
 
-<h1>Create Solicitud</h1>
-
-<div class="row">
-    <div class="col-md-3"><h2>Solicitud <small></small></h2></div>
+<div id="container">
+  <div class="row">
+    <div class="col-md-5" id="titulo"><h2><span class="glyphicon glyphicon-file"></span> Solicitudes <small> &gt; Nueva Solicitud </small></h2></div>
+  </div>
+  <div class="page-header clearfix" style="margin-top:-2%">
+      <div class="pull-right">
+      <a href="{{{ URL::previous() }}}" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-arrow-left"></span> Regresar</a>
+    </div>
+  </div>
 </div>
+
 {{ Form::open(array('route' => 'Solicitudes.store')) }}
     <div class="form-group">
         <div class="col-md-10 col-md-offset-1">

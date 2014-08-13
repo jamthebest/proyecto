@@ -6,9 +6,11 @@
 
 @section('main')
 	
-	<div class="row">
-    	<div class="col-md-3"><h2>Ingreso <small></small></h2></div>
-	</div>
+<div id="container">
+  <div class="row">
+    <div class="col-md-4" id="titulo"><h2><span class="glyphicon glyphicon-log-in"></span> Ingreso </h2></div>
+  </div>
+</div>
 
 	@if(Session::has('message'))
 		<div class="alert alert-danger fade in">

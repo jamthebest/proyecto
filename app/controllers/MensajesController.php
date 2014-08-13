@@ -34,7 +34,7 @@ class MensajesController extends BaseController {
 	 */
 	public function create()
 	{
-		return View::make('Mensajes.create');
+		return Redirect::route('Mensajes.index');
 	}
 
 	/**
@@ -147,6 +147,27 @@ class MensajesController extends BaseController {
 			$Usuario = Usuario::find($Solicitud->user);
 
 			return View::make('Solicitudes.show', compact('Solicitud', 'Usuario'))
+				->with('message', 'Mensaje Enviado!');
+		}
+
+		return Redirect::back()
+			->withInput()
+			->withErrors($validation)
+			->with('message', 'There were validation errors.');
+	}
+
+	public function guardar2($id)
+	{
+		$input = Input::all();
+		$validation = Validator::make($input, Mensaje::$rules);
+
+		if ($validation->passes())
+		{
+			Mensaje::create($input);
+
+			$Usuario = Usuario::find($Comentario->user);
+
+			return View::make('Solicitudes.show', compact('Comentario', 'Usuario'))
 				->with('message', 'Mensaje Enviado!');
 		}
 
