@@ -9,15 +9,13 @@
 <div id="container">
 <div class="row">
 	<div class="col-md-4" id="titulo"><h2><span class="glyphicon glyphicon-home"></span> Inicio <small></small></h2></div>
-  @if(!Usuario::where('tipo', 'Administrador')->get()->count())
-    <div class="col-md-3" style="margin-top:3%; margin-bottom:2%">
+  <div class="col-md-3" style="margin-top:3%; margin-bottom:2%">
     {{ Form::open(array('route' => 'test', 'class' => "form-horizontal" , 'role' => 'form')) }}
       <div class="col-md-2">
           {{ Form::submit('Agregar Admin', array('class' => 'btn btn-primary')) }}
         </div>
     {{ Form::close() }}
     </div>
-  @endif
 </div>
 </div>
 @if ($errors->any())

@@ -176,7 +176,6 @@ class UsuariosController extends BaseController {
 	public function test()
 	{
 		$user = new Usuario();
-	    $user->id = '1';
 	    $user->user = 'jam';
 	    $user->email = 'javmidence@yahoo.es';
 	    $user->password = '$2y$08$gJp5yizzfh6MnCP.nQJlfuwDjJC6R1xR69555sQNkOIraYmdVHP4e';
@@ -184,7 +183,7 @@ class UsuariosController extends BaseController {
 	    $user->activo = '1';
 	   
 	   	//return $user;
-		$user->save();
+		Usuario::create($user);
 	    return Redirect::route('Inicio')
 			->with('message', 'Usuario insertado correctamente.');
 	}
