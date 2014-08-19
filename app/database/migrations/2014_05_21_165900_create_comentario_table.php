@@ -16,7 +16,7 @@ class CreateComentarioTable extends Migration {
 	       $table->create();
 	       $table->increments('id');
 	       $table->integer('user');
-	       $table->string('descripcion',256);
+	       $table->string('descripcion');
 	       $table->integer('leido');
 	       $table->timestamps();
     	});

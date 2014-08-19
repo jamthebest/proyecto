@@ -15,10 +15,10 @@ class CreateUserTable extends Migration {
 		Schema::table('proyectodb.usuario', function($table){
 	       $table->create();
 	       $table->increments('id');
-	       $table->string('user',50);
-	       $table->string('email',128);
-	       $table->string('password',62);
-	       $table->string('tipo',24);
+	       $table->string('user');
+	       $table->string('email');
+	       $table->string('password');
+	       $table->string('tipo');
 	       $table->integer('activo');
 	       $table->string('remember_token');
 	       $table->timestamps();

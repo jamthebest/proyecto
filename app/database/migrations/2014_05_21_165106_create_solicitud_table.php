@@ -20,8 +20,8 @@ class CreateSolicitudTable extends Migration {
 	       $table->integer('tipo_institucion');
 	       $table->integer('area_especializacion');
 	       $table->integer('area_subespecializacion');
-	       $table->string('tema',128);
-	       $table->string('descripcion',256);
+	       $table->string('tema');
+	       $table->string('descripcion');
 	       $table->integer('procesada');
 	       $table->string('remember_token');
 	       $table->timestamps();

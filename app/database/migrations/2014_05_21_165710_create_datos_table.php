@@ -15,10 +15,10 @@ class CreateDatosTable extends Migration {
 		Schema::table('proyectodb.datos', function($table){
 	       $table->create();
 	       $table->increments('id');
-	       $table->string('nombre',256);
-	       $table->string('empresa',128);
-	       $table->string('cargo',128);
-	       $table->string('telefono',15);
+	       $table->string('nombre');
+	       $table->string('empresa');
+	       $table->string('cargo');
+	       $table->string('telefono');
 	       $table->integer('user');
 	       $table->timestamps();
     	});
