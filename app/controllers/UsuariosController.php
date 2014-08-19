@@ -22,10 +22,10 @@ class UsuariosController extends BaseController {
 	 */
 	public function index()
 	{
-		if (Auth::user()->tipo == 'Administrador') {
+		//if (Auth::user()->tipo == 'Administrador') {
 			$Usuarios = $this->Usuario->paginate(10);
 			return View::make('Usuarios.index', compact('Usuarios'));
-		}
+		//}
 		return Redirect::route('Inicio')->withErrors('No tiene permisos para acceder a esta página!');
 	}
 
