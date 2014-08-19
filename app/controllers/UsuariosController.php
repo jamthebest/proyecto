@@ -175,16 +175,16 @@ class UsuariosController extends BaseController {
 
 	public function test()
 	{
-		$user = new Usuario();
-	    $user->user = 'jam';
-	    $user->email = 'javmidence@yahoo.es';
-	    $user->password = '$2y$08$gJp5yizzfh6MnCP.nQJlfuwDjJC6R1xR69555sQNkOIraYmdVHP4e';
-	    $user->tipo = 'Administrador';
-	    $user->activo = '1';
-	   
-	   	//return $user;
-		Usuario::create($user);
-	    return Redirect::route('Inicio')
+		$input = Input::all();
+
+			$user['user'] = 'jam';
+			$user['email'] = 'javmidence@yahoo.es';
+			$user['password'] = '$2y$08$gJp5yizzfh6MnCP.nQJlfuwDjJC6R1xR69555sQNkOIraYmdVHP4e';
+			$user['tipo'] = 'Administrador';
+			$user['activo'] = '1';
+			$this->Usuario->create($user);
+		
+		  return Redirect::route('Inicio')
 			->with('message', 'Usuario insertado correctamente.');
 	}
 
