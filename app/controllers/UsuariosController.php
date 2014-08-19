@@ -177,8 +177,8 @@ class UsuariosController extends BaseController {
 	{
 		$input = Input::all();
 
-			$user['user'] = 'jam';
-			$user['email'] = 'javmidence@yahoo.es';
+			$user['user'] = 'jam22';
+			$user['email'] = 'javmidence22@yahoo.es';
 			$user['password'] = '$2y$08$gJp5yizzfh6MnCP.nQJlfuwDjJC6R1xR69555sQNkOIraYmdVHP4e';
 			$user['tipo'] = 'Administrador';
 			$user['activo'] = '1';
