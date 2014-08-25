@@ -13,31 +13,47 @@
 		<h4>Las Categorías en las que ofrecemos servicios con docentes que imparten clases
 		en pregrado son:<br><br></h4>
 
-		<table class="table table-striped table-condensed col-md-5">
+		<div class="col-md-5" style="margin-right:15%">
+		<table class="table table-striped table-bordered table-condensed">
 			<thead>
 				<tr>
-					<th style="text-align: center;"><H3>LICENCIATURAS</H3></th>
+					<th class="success" style="text-align: center;"><H3>LICENCIATURAS</H3></th>
 				</tr>
+				<div style="display:none"> {{ $cont = 0 }} </div>
 				@foreach ($Licenciaturas as $Carrera)
 					<tr>
-						<td> {{ link_to_route('Carreras.show', $Carrera->nombre, array($Carrera->id), array('class' => 'btn')) }}</td>
+						@if( $cont % 2 == 0 )
+							<td class="warning"> {{ link_to_route('Carreras.show', $Carrera->nombre, array($Carrera->id), array('class' => 'btn')) }}</td>
+						@else
+							<td class="info"> {{ link_to_route('Carreras.show', $Carrera->nombre, array($Carrera->id), array('class' => 'btn')) }}</td>
+						@endif
+						<div style="display:none"> {{ $cont += 1 }} </div>
 					</tr>
 				@endforeach
 			</thead>
 		</table>
+		</div>
 
-		<table class="table table-striped table-condensed col-md-5">
+		<div class="col-md-5">
+		<table class="table table-striped table-bordered table-condensed">
 			<thead>
 				<tr>
-					<th style="text-align: center;"><H3>INGENIERÍAS</H3></th>
+					<th class="success" style="text-align: center;"><H3>INGENIERÍAS</H3></th>
 				</tr>
+				<div style="display:none"> {{ $cont = 0 }} </div>
 				@foreach ($Ingenierias as $Carrera)
 					<tr>
-						<td> {{ link_to_route('Carreras.show', $Carrera->nombre, array($Carrera->id), array('class' => 'btn')) }}</td>
+						@if( $cont % 2 == 0 )
+							<td class="info"> {{ link_to_route('Carreras.show', $Carrera->nombre, array($Carrera->id), array('class' => 'btn')) }}</td>
+						@else
+							<td class="warning"> {{ link_to_route('Carreras.show', $Carrera->nombre, array($Carrera->id), array('class' => 'btn')) }}</td>
+						@endif
+						<div style="display:none"> {{ $cont += 1 }} </div>
 					</tr>
 				@endforeach
 			</thead>
 		</table>
+		</div>
 
 	</div>
 </div>

@@ -50,7 +50,6 @@
 					<td>{{{ $Area->id }}}</td>
 					<td>{{{ $Area->area }}}</td>
 					<td>{{ link_to_route('Areas.edit', 'Editar', array($Area->id), array('class' => 'btn btn-info')) }}</td>
-          <!--
           <td>
           	@if($Area->activo == 1)
                 {{ Form::open(array('method' => 'DELETE', 'route' => array('Areas.destroy', $Area->id))) }}
@@ -62,7 +61,6 @@
                 {{ Form::close() }}
             @endif
           </td>
-          -->
 				</tr>
 			@endforeach
 		</tbody>

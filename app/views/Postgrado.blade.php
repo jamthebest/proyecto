@@ -15,31 +15,47 @@
 		A continuación se presentala lista de las distintas Maestrías:<br><br></h4>
 
 		
-		<table class="table table-striped table-condensed">
-			<thead>
-				<tr>
-					<th style="text-align: center;"><H3>MAESTRÍAS</H3></th>
-				</tr>
-				@foreach ($Maestrias as $Carrera)
+		<div class="col-md-5" style="margin-left:-25%;margin-right:35%">
+			<table class="table table-striped table-bordered">
+				<thead>
 					<tr>
-						<td> {{ link_to_route('Carreras.show', $Carrera->nombre, array($Carrera->id), array('class' => 'btn')) }}</td>
+						<th class="success" style="text-align: center;"><H3>MAESTRÍAS</H3></th>
 					</tr>
-				@endforeach
-			</thead>
-		</table>
-
-		<table class="table table-striped table-condensed">
-			<thead>
-				<tr>
-					<th style="text-align: center;"><H3>TÉCNICOS</H3></th>
-				</tr>
-				@foreach ($Tecnicos as $Carrera)
+					<div style="display:none"> {{ $cont = 0 }} </div>
+					@foreach ($Maestrias as $Carrera)
+						<tr>
+							@if( $cont % 2 == 0 )
+								<td class="info"> {{ link_to_route('Carreras.show', $Carrera->nombre, array($Carrera->id), array('class' => 'btn')) }}</td>
+							@else
+								<td class="warning"> {{ link_to_route('Carreras.show', $Carrera->nombre, array($Carrera->id), array('class' => 'btn')) }}</td>
+							@endif
+							<div style="display:none"> {{ $cont += 1 }} </div>
+						</tr>
+					@endforeach
+				</thead>
+			</table>
+		</div>
+		
+		<div class="col-md-5">
+			<table class="table table-striped table-bordered">
+				<thead>
 					<tr>
-						<td> {{ link_to_route('Carreras.show', $Carrera->nombre, array($Carrera->id), array('class' => 'btn')) }}</td>
+						<th class="success" style="text-align: center;"><H3>TÉCNICOS</H3></th>
 					</tr>
-				@endforeach
-			</thead>
-		</table>
+					<div style="display:none"> {{ $cont = 0 }} </div>
+					@foreach ($Tecnicos as $Carrera)
+						<tr>
+							@if( $cont % 2 == 0 )
+								<td class="warning"> {{ link_to_route('Carreras.show', $Carrera->nombre, array($Carrera->id), array('class' => 'btn')) }}</td>
+							@else
+								<td class="info"> {{ link_to_route('Carreras.show', $Carrera->nombre, array($Carrera->id), array('class' => 'btn')) }}</td>
+							@endif
+							<div style="display:none"> {{ $cont += 1 }} </div>
+						</tr>
+					@endforeach
+				</thead>
+			</table>
+		</div>
 
 	</div>
 </div>
